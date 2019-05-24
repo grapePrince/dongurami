@@ -1,35 +1,29 @@
- var path = require("path");
+let path = require("path");
  
  module.exports = {
+    mode: 'development',
     entry: {
-        '/src/js/app.js' : [ 
+        'app.js' : [ 
             '@babel/polyfill',    // multiple entry 로 babel polyfill 을 넣는다.
-            './src/js/index.js'
-        ],
-        '/src/css/app.css' : './src/css/app.less'
+            './src/js/app.js'
+        ]
     },
     output: {
         filename: '[name]',
-        path: __dirname
+        path: path.resolve(__dirname, 'src/js')
     },
-
     devtool: 'inline-source-map',
     module: {
       rules: [
         {
           test: /\.js$/,
-          exclude: /(node_modules|lib|bower_components)/,
+          exclude: /(node_modules|lib)/,
           use: {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env']
             }
           }
-        },
-        {
-            test: /\.less$/,
-            exclude: /(node_modules|lib|bower_components)/,
-            loader: 'less-loader', // compiles Less to CSS
         }
       ]
     }
@@ -40,6 +34,10 @@
 
 @babel/polyfill  을 앞에 붙여줘야 런타임에서 es6문법 사용 가능
 inline-source-map 을 사용해야 디버깅 할 때 원래 소스를 찾아갈 수 있음. 
+
+webpack 에서는 왠만하면 less 컴파일은 시도하지 않는다. 
+경로를 찾아가야하는 부분에서 loader들을 여러개 타면서 위치가 꼬여서 resolve 불가능해진다. 
+https://github.com/webpack-contrib/less-loader/issues/76
 
 */
 

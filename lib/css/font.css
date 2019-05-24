@@ -1,0 +1,19 @@
+
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,700);
+@font-face {
+    font-family: 'BinggraeTaom';
+    src: url("../../resource/BinggraeTaom.eot");  /* IE 호환성 보기 */
+    src: url("../../resource/BinggraeTaom.eot#iefix") format('embedded-opentype'),  /* IE 6 ~ 8 */
+         url("../../resource/BinggraeTaom.woff2") format('woff2'),  /* WOFF2 지원 브라우저 */
+         url("../../resource/BinggraeTaom.woff") format('woff'),  /* 모던 브라우저 */
+         url("../../resource/BinggraeTaom.ttf") format('truetype');
+  }
+@font-face {
+    font-family: 'BinggraeTaom';
+    src: url("../../resource/BinggraeTaom-Bold.eot");  /* IE 호환성 보기 */
+    src: url("../../resource/BinggraeTaom-Bold.eot#iefix") format('embedded-opentype'),  /* IE 6 ~ 8 */
+            url("../../resource/BinggraeTaom-Bold.woff2") format('woff2'),  /* WOFF2 지원 브라우저 */
+            url("../../resource/BinggraeTaom-Bold.woff") format('woff'),  /* 모던 브라우저 */
+            url("../../resource/BinggraeTaom-Bold.ttf") format('truetype');
+    font-weight: bold;        
+}  

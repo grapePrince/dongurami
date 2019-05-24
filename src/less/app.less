@@ -1,31 +1,17 @@
 @charset "utf-8";
 
-@import (css) url("../resource/css/reset.css");
-@import (css) url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,700");
-@font-face {
-    font-family: 'BinggraeTaom';
-    src: url(../resource/BinggraeTaom.eot);  /* IE 호환성 보기 */
-    src: url(../resource/BinggraeTaom.eot#iefix) format('embedded-opentype'),  /* IE 6 ~ 8 */
-         url(../resource/BinggraeTaom.woff2) format('woff2'),  /* WOFF2 지원 브라우저 */
-         url(../resource/BinggraeTaom.woff) format('woff'),  /* 모던 브라우저 */
-         url(../resource/BinggraeTaom.ttf) format('truetype');
-  }
-@font-face {
-    font-family: 'BinggraeTaom';
-    src: url(../resource/BinggraeTaom-Bold.eot);  /* IE 호환성 보기 */
-    src: url(../resource/BinggraeTaom-Bold.eot#iefix) format('embedded-opentype'),  /* IE 6 ~ 8 */
-            url(../resource/BinggraeTaom-Bold.woff2) format('woff2'),  /* WOFF2 지원 브라우저 */
-            url(../resource/BinggraeTaom-Bold.woff) format('woff'),  /* 모던 브라우저 */
-            url(../resource/BinggraeTaom-Bold.ttf) format('truetype');
-    font-weight: bold;        
-}  
-
+@import url("@{url_lib}/css/reset.css");
+@import url("@{url_lib}/css/font.css");
 
 /* ----------------- VALUES ------------------ */
 
 @sub_left: 170px;
 @sub_right: 1000px;
 
+@url_lib: "../../lib";
+@url_resource: "../../resource";
+@url_images: "../../resource/images";
+@url_sprite: url("@{url_images}/sprite.png");
 
 /* ----------------- COLOR ------------------ */
 
@@ -124,7 +110,7 @@ body {
     border-radius: 5px;
     color: rgb(202,67,75);
     border: 2px solid rgb(202,67,75);
-    background: rgb(0,0,0,0);
+
 }
 
 .btn_normal:hover {
@@ -331,7 +317,7 @@ a {
 
 body.sub {
     main  {
-        background: linear-grandient(to right, @red @sub_left, @transparent @sub_left);
+        background: linear-gradient(to right, @red @sub_left, @transparent @sub_left);
     }
     aside {
         float: left;
@@ -418,7 +404,7 @@ section, section.container {
     top: 50%; left: 50%; transform: translate(-50%, -50%);
     width: 30px;
     height: 17px;
-    background: url(../resource/images/sprite.png) no-repeat -400px -500px;
+    background: @url_sprite no-repeat -400px -500px;
 }
 
 .main-header .close {
@@ -429,7 +415,7 @@ section, section.container {
     margin-left: -600px;
     width: 23px;
     height: 23px;
-    background: url(../resource/images/sprite.png) no-repeat -500px -500px;
+    background: @url_sprite no-repeat -500px -500px;
     cursor: pointer;
     display: none;
 }
@@ -560,11 +546,11 @@ section, section.container {
     top: 50%; transform: translateY(-50%);
     width: 10px;
     height: 10px;
-    background: url(../resource/images/sprite.png) no-repeat -500px -100px;
+    background: @url_sprite no-repeat -500px -100px;
 } 
 
 .main-header nav > ul > li:hover > a:after {
-    background: url(../resource/images/sprite.png) no-repeat -600px -100px;
+    background: @url_sprite no-repeat -600px -100px;
 }
 
 .main-header nav > ul > li div {
@@ -596,7 +582,7 @@ section, section.container {
     width: 81px;
     height: 81px;
     border-radius: 100%;
-    background-image: url(../resource/images/sprite.png);
+    background-image: @url_sprite;
     background-repeat: no-repeat;
 }
 
@@ -697,7 +683,7 @@ main .banner li {
 
 main .banner li.happy {
     text-align: center;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)), url("../resource/images/banner_bg1.jpg");
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)), url("@{url_images}/banner_bg1.jpg");
 }
 
 main .banner li.happy .texts {
@@ -713,7 +699,7 @@ main .banner li.happy h2 {
 
 main .banner li.diy_update {
     text-align: right;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)), url("../resource/images/banner_bg2.jpg");
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)), url("@{url_images}/banner_bg2.jpg");
 }
 
 main .banner li.diy_update .texts {
@@ -724,7 +710,7 @@ main .banner li.diy_update .texts {
 
 main .banner li.twitter_detail {
     text-align: left;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)), url("../resource/images/banner_bg3.jpg");
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)), url("@{url_images}/banner_bg3.jpg");
 }
 
 main .banner li.twitter_detail .texts {
@@ -767,12 +753,12 @@ main .banner .controls .img {
 
 main .banner .controls .swiper-button-prev .img {
     left: 20px;
-    background: url("../resource/images/sprite.png") no-repeat -700px -100px;
+    background: @url_sprite no-repeat -700px -100px;
 }
 
 main .banner .controls .swiper-button-next .img{
     right: 20px;
-    background: url("../resource/images/sprite.png") no-repeat -800px -100px;
+    background: @url_sprite no-repeat -800px -100px;
 }
 
 
@@ -832,7 +818,7 @@ main .feature_services li .img {
     width: 121px;
     height: 121px;
     background-repeat: no-repeat;
-    background-image: url(../resource/images/sprite.png);
+    background-image: @url_sprite;
     margin: 0 75px 35px;
 }
 
@@ -1063,19 +1049,19 @@ main .cta .btn_normal:hover {
 }
 
 .social .kakao {
-    background: url(../resource/images/sprite.png) no-repeat -150px -350px;
+    background: @url_sprite no-repeat -150px -350px;
 }
 
 .social .kakao:hover {
-    background: url(../resource/images/sprite.png) no-repeat -300px -350px;
+    background: @url_sprite no-repeat -300px -350px;
 }
 
 .social .twitter {
-    background: url(../resource/images/sprite.png) no-repeat -450px -350px;
+    background: @url_sprite no-repeat -450px -350px;
 }
 
 .social .twitter:hover {
-    background: url(../resource/images/sprite.png) no-repeat -600px -350px;
+    background: @url_sprite no-repeat -600px -350px;
 }
 
 
@@ -1120,19 +1106,19 @@ footer .footer_info .social_links a {
 
 
 footer .footer_info .social_links  .kakao {
-    background: url(../resource/images/sprite.png) no-repeat 0px -500px;
+    background: @url_sprite no-repeat 0px -500px;
 }
 
 footer .footer_info .social_links .kakao:hover {
-    background: url(../resource/images/sprite.png) no-repeat -100px -500px;
+    background: @url_sprite no-repeat -100px -500px;
 }
 
 footer .footer_info .social_links .twitter {
-    background: url(../resource/images/sprite.png) no-repeat -200px -500px;
+    background: @url_sprite no-repeat -200px -500px;
 }
 
 footer .footer_info .social_links .twitter:hover {
-    background: url(../resource/images/sprite.png) no-repeat -300px -500px;
+    background: @url_sprite no-repeat -300px -500px;
 }
 
 
