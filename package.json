@@ -1,0 +1,33 @@
+{
+  "name": "dongurami",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "deploy": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grapePrince/dongurami.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grapePrince/dongurami/issues"
+  },
+  "homepage": "https://github.com/grapePrince/dongurami#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "less-loader": "^5.0.0",
+    "webpack": "^4.32.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "less": "^3.9.0",
+    "path": "^0.12.7"
+  }
+}

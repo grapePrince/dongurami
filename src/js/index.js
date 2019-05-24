@@ -1,11 +1,68 @@
-
 var $els = [];
 var logo_animation = [];
 
 $(window).on("load", function(){
-    inint();
-    
+    if (main.getCurrentPage() === "index") {
+        index.init();    
+    } else if (main.getCurrentPage() === "introduce") {
+        introduce.initIntroduce();
+    }
 }); 
+
+
+
+
+/* ---------------------   MAIN -------------------------- */
+
+var main = (function() {
+    var getCurrentPage = function() {
+        var $body = $(document.body);
+        if ($body.hasClass("index")) {
+            return "index";
+        } else if($body.hasClass("introduce")) {
+            return "introduce";
+        }
+    };
+
+    var initHeader = function() {
+
+    }
+
+    return {
+        getCurrentPage: getCurrentPage,
+        initHeader: initHeader
+    }
+})();
+
+
+/* ---------------------   INDEX -------------------------- */
+
+var index = (function() {
+    var init = function() {
+        main.initHeader();
+
+        
+
+    }
+    return {
+        init: init
+    }
+})();
+
+
+/* ---------------------   INTRODUCE -------------------------- */
+
+var introduce = (function() {
+    var init = function() {
+        
+    }
+    return {
+        init: init
+    }
+})();
+
+
+
   
 function inint() {
     $els["hamburger"] = $(".main-header .hamburger");
