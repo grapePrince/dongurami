@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="레이어_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#CA434B;}
+	.st1{fill:none;stroke:#FFF8EE;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#FFF8EE;stroke-width:10;stroke-linecap:round;stroke-miterlimit:10;}
+</style>
+<circle class="st0" cx="250" cy="250.1" r="250"/>
+<g>
+	<rect x="102.3" y="130.7" class="st1" width="295.4" height="238.7"/>
+	<rect x="136.3" y="164.7" class="st1" width="227.4" height="143.8"/>
+	<circle class="st1" cx="283" cy="205.2" r="15.1"/>
+	<polygon class="st1" points="136.3,288.1 212.9,211.5 309.5,308.5 136.3,308.5 	"/>
+	<polygon class="st1" points="313.3,247.6 363.7,298.3 363.7,308.5 309.5,308.5 280.6,279.4 	"/>
+</g>
+<line class="st1" x1="138.3" y1="337" x2="173.3" y2="337"/>
+<line class="st2" x1="193" y1="337" x2="213" y2="337"/>
+</svg>

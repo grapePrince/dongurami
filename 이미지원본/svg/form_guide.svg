@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="레이어_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#CA434B;}
+	
+		.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#CA434B;stroke:#FFF8EE;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:#CA434B;stroke:#FFF8EE;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#FFF8EE;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<g>
+	<circle class="st0" cx="250" cy="250" r="250"/>
+</g>
+<g>
+	<rect x="128.7" y="104.4" class="st1" width="242.6" height="291.1"/>
+	<g>
+		<rect x="167" y="145.9" class="st2" width="83" height="83"/>
+		<line class="st3" x1="270.7" y1="156.7" x2="333" y2="156.7"/>
+		<line class="st3" x1="270.7" y1="177.4" x2="333" y2="177.4"/>
+		<line class="st3" x1="270.7" y1="198.1" x2="333" y2="198.1"/>
+		<line class="st3" x1="270.7" y1="218.9" x2="333" y2="218.9"/>
+		<rect x="301.4" y="250.4" class="st2" width="20.7" height="20.7"/>
+		<rect x="302.3" y="291.9" class="st2" width="20.7" height="20.7"/>
+		<rect x="301.4" y="333.4" class="st2" width="20.7" height="20.7"/>
+		<line class="st3" x1="280.7" y1="260.4" x2="167" y2="260.4"/>
+		<line class="st3" x1="281.5" y1="301.9" x2="167.9" y2="301.9"/>
+		<line class="st3" x1="280.7" y1="343.3" x2="167" y2="343.3"/>
+	</g>
+</g>
+</svg>
