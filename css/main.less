@@ -35,6 +35,7 @@
 @cream_dark: rgb(255,238,214);
 @shadow: rgb(174,139,121);
 @black: rgb(30,27,25);
+@transparent: rgba(0,0,0,0);
 
 .cream_bak {
     background: @cream;
@@ -326,17 +327,19 @@ a {
     text-shadow: 1px 1px 1px  rgba(0,0,0, .2);
 }
 
-// body.sub {
-//     aside {
-//         float: left;
-//         width: @sub_left;
-//         .red_bak();
-//     }
-//     section {
-//         float: right;
-//         width: @sub_right;
-//     }
-// }
+body.sub {
+    main  {
+        background: linear-grandient(to right, @red @sub_left, @transparent @sub_left);
+    }
+    aside {
+        float: left;
+        width: @sub_left;
+    }
+    section {
+        float: right;
+        width: @sub_right;
+    }
+}
 
 
 /* ----------------- LAYOUT ------------------ */

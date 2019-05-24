@@ -1,5 +1,16 @@
 @import url("../resource/css/reset.css");
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,700');
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Noto Sans KR Light'), local('NotoSansKR-Light'), url(https://fonts.gstatic.com/s/notosanskr/v11/Pby7FmXiEBPT4ITbgNA5CgmOelz477IS.otf) format('opentype');
+}
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Noto Sans KR Bold'), local('NotoSansKR-Bold'), url(https://fonts.gstatic.com/s/notosanskr/v11/Pby7FmXiEBPT4ITbgNA5CgmOalv477IS.otf) format('opentype');
+}
 @font-face {
   font-family: 'BinggraeTaom';
   src: url(../resource/BinggraeTaom.eot);
@@ -51,7 +62,7 @@ body {
   /* 38px */
 }
 .content_title {
-  font-size: 1.750em;
+  font-size: 1.75em;
   /* 28px */
 }
 .content_title_small {
@@ -262,6 +273,17 @@ a {
 .text_shadow {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
+body.sub main {
+  background: linear-grandient(to right, #ca434b 170px, rgba(0, 0, 0, 0) 170px);
+}
+body.sub aside {
+  float: left;
+  width: 170px;
+}
+body.sub section {
+  float: right;
+  width: 1000px;
+}
 /* ----------------- LAYOUT ------------------ */
 body {
   overflow-x: hidden;
@@ -364,7 +386,7 @@ section.container {
   right: 0;
   background: #fff8ee;
   z-index: 3;
-  animation: logo_fade_to_right 0.5s 2s forwards ;
+  animation: logo_fade_to_right 0.5s 2s forwards;
 }
 .main-header h1 a:hover {
   color: #ca434b;
@@ -384,10 +406,10 @@ section.container {
   height: 1px;
   z-index: 3;
   background: #fff8ee;
-  animation: logo_fade_to_right 0.5s forwards ;
+  animation: logo_fade_to_right 0.5s forwards;
 }
 .main-header h1 a:hover div span.after {
-  animation: logo_fade_to_right 0.5s forwards ;
+  animation: logo_fade_to_right 0.5s forwards;
 }
 .main-header h1 a div:nth-child(2n) {
   padding-bottom: 4px;
@@ -449,7 +471,7 @@ section.container {
 .main-header nav > ul > li > a:after {
   content: "";
   position: absolute;
-  left: calc(45%);
+  left: calc(100% - 55px);
   top: 50%;
   transform: translateY(-50%);
   width: 10px;
