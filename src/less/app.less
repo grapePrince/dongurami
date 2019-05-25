@@ -13,6 +13,8 @@
 @url_images: "../../resource/images";
 @url_sprite: url("@{url_images}/sprite.png");
 
+@red_border_1: 1px solid @red;
+
 /* ----------------- COLOR ------------------ */
 
 @red: rgb(202, 67, 75);
@@ -34,16 +36,6 @@
 }
 
 
-/*
-Red: rgb(202,67,75); 
-Red_Dark: rgb(105,29,35); 
-Pink: rgb(245,177,162);
-Pink_Dark: rgb(194,140,128);
-Cream: rgb(255,248,238);
-Cream_Dark: rgb(255,238,214);
-Shadow: rgb(174,139,121);
-Black: rgb(30,27,25);
-*/
 
 
 /* ----------------- TYPOGRAPHY ------------------ */
@@ -361,6 +353,7 @@ section, section.container {
     top: -50%;
     left: 0;
     right: 0;
+    .shadow();
     animation: header_from_top 1s forwards;
 }
 
@@ -427,92 +420,119 @@ section, section.container {
 .main-header h1 {
     float: left;
     margin: 22px 0;
+
+    a {
+        position: relative;
+        display: inline-block;
+
+        &:hover {
+            color: @red;
+        }
+
+        & > .after {
+            content: "";
+            position: absolute;
+            top: 2px; bottom: 2px; left: 0; right: 0;
+            background: @cream;
+            z-index: 3;
+        }
+
+        span {
+            position: relative;
+            display: inline-block;
+            font-size: 25px;
+            width: 25px;
+            margin-right: -0.14em;
+
+            &:nth-child(2n) {
+                padding-bottom: 4px;
+                border-bottom: @red_border_1;
+                .after {
+                    bottom: -1px; 
+                }
+            }
+
+            &:nth-child(2n+1) {
+                padding-top: 6px;
+                border-top: @red_border_1;
+                .after {
+                    top: -1px; 
+                }
+            }
+
+            .after {
+                content: "";
+                position: absolute; 
+                left: 0; right: 0;
+                height: 1px;
+                z-index: 3;
+                background: @cream;
+            }
+        }
+    }
+}
+
+.main-header h1.init {
+    a {
+        .after {
+            animation: logo_fade_to_right_init 0.5s forwards;
+        }
+        & > .after {
+            animation-delay: 2s;
+        }
+        span:nth-child(1) .after {
+            animation-delay: 0s;
+        }
+        span:nth-child(2) .after {
+            animation-delay: 0.5s;
+        }
+        span:nth-child(3) .after {
+            animation-delay: 1s;
+        }
+        span:nth-child(4) .after {
+            animation-delay: 1.5s;
+        }
+    }
+}
+
+.main-header h1.hover {
+    a {
+        .after {
+            animation: logo_fade_to_right_hover 0.5s forwards;
+        }
+        & > .after {
+            animation: logo_fade_to_right_hover 0s forwards;
+        }
+        span:nth-child(1) .after {
+            animation-delay: 0s;
+        }
+        span:nth-child(2) .after {
+            animation-delay: 0.5s;
+        }
+        span:nth-child(3) .after {
+            animation-delay: 1s;
+        }
+        span:nth-child(4) .after {
+            animation-delay: 1.5s;
+        }
+    }
+}
+
+.main-header h1.hoverout a .after {
+    animation: logo_fade_to_right_init 0s forwards;
+}
+
+@keyframes logo_fade_to_right_init {
+    from { left: 0; }
+    to { left: 100%; }
+}
+@keyframes logo_fade_to_right_hover {
+    from { left: 0; }
+    to { left: 100%; }
 }
 
 .header_opened .main-header h1 {
     display: none;
-}
-
-.main-header h1 a {
-    position: relative;
-    display: inline-block;
-}
-
-.main-header h1 a > .after {
-    content: "";
-    position: absolute;
-    top: 2px; bottom: 2px; left: 0; right: 0;
-    background: rgb(255,248,238);
-    z-index: 3;
-    animation: logo_fade_to_right 0.5s 2s forwards ;
-}
-
-.main-header h1 a:hover {
-    color: rgb(202,67,75);
-}
-
-.main-header h1 a div {
-    position: relative;
-    display: inline-block;
-    font-size: 25px;
-    width: 25px;
-    margin-right: -0.14em;
-}
-
-.main-header h1 a div .after {
-    content: "";
-    position: absolute; 
-    left: 0; right: 0;
-    height: 1px;
-    z-index: 3;
-    background: rgb(255,248,238);
-    animation: logo_fade_to_right 0.5s forwards ;
-}
-
-.main-header h1 a:hover div span.after {
-    animation: logo_fade_to_right 0.5s forwards ;
-}
-
-.main-header h1 a div:nth-child(2n) {
-    padding-bottom: 4px;
-    border-bottom: 1px solid rgb(202,67,75);
-}
-.main-header h1 a div:nth-child(2n) .after {
-    bottom: -1px; 
-}
-.main-header h1 a div:nth-child(2n+1) {
-    padding-top: 6px;
-    border-top: 1px solid rgb(202,67,75);
-}
-.main-header h1 a div:nth-child(2n+1) .after {
-    top: -1px; 
-}
-
-.main-header h1 a div:nth-child(1) .after,
-.main-header h1 a:hover div:nth-child(1) .after  {
-    animation-delay: 0s;
-}
-.main-header h1 a div:nth-child(2) .after,
-.main-header h1 a:hover div:nth-child(2) .after {
-    animation-delay: 0.5s;
-}
-.main-header h1 a div:nth-child(3) .after,
-.main-header h1 a:hover div:nth-child(3) .after {
-    animation-delay: 1s;
-}
-.main-header h1 a div:nth-child(4) .after,
-.main-header h1 a:hover div:nth-child(4) .after {
-    animation-delay: 1.5s;
-}
-
-
-@keyframes logo_fade_to_right {
-    from {
-        left: 0;
-    }
-    to {
-        left: 100%;
-    }
 }
 
 .main-header nav {

@@ -1,41 +1,22 @@
-import Page from "./page.js";
+import Page from './page.js';
+import { ScrollElement } from "./common.js";
 import Swiper from 'swiper';
 
 export default class Main extends Page {
     constructor() {
         super();
         this.scrollList = [...this.scrollList, 
-            { 
-                name: "cta",
-                scrollValue: 400,
-                $el: $("main .cta")
-            },
-            { 
-                name: "product_twenty",
-                scrollValue: 700,
-                $el: $(".products .twenty")
-            },
-            { 
-                name: "product_fifteen",
-                scrollValue: 1400,
-                $el: $(".products .fifteen")
-            },
-            { 
-                name: "product_diy",
-                scrollValue: 2100,
-                $el: $(".products .diy")
-            },
-            { 
-                name: "social",
-                scrollValue: 2800,
-                $el: $(".social")
-            }
+            new ScrollElement('cta', $('main .cta'),  $('main .cta')),
+            new ScrollElement('product_twenty', $('.products .twenty'), $(".products .twenty")),
+            new ScrollElement('product_fifteen',  $('.products .fifteen'), $(".products .fifteen")),
+            new ScrollElement('product_diy',  $('.products .diy'), $(".products .diy")),
+            new ScrollElement('social', $('.social'), $('.social'))
         ];
     }
 
     init() {
         super.init();
-        initSwiper();
+        this.initSwiper();
     }
 
     initSwiper() {

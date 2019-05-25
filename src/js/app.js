@@ -2,15 +2,19 @@
 import Main from './main.js';
 import Introduce from './introduce.js';
 
-const main = Main();
-const introcude = Introduce();
+const main = new Main();
+const introcude = new Introduce();
 
-$(window).on("load", function(){
-    if (main.getCurrentPage() === "index") {
+$(window).on('load', onload); 
+
+function onload() {
+    if (main.getCurrentPage() === 'index') {
         main.init();    
-    } else if (main.getCurrentPage() === "introduce") {
-        introcude.init();
+    } else if (main.getCurrentPage() === 'introduce') {
+        introcude.init(); 
     }
-}); 
+}
+
+
 
 
