@@ -1039,3 +1039,9 @@ body.sub section {
   /* 28px */
   line-height: 44px;
 }
+.introduce section.map #map {
+  display: inline-block;
+  width: 370px;
+  height: 370px;
+  background: #fff8ee;
+}
