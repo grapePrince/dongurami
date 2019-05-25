@@ -14,6 +14,7 @@
 @url_sprite: url("@{url_images}/sprite.png");
 
 @red_border_1: 1px solid @red;
+@cream_border_1: 1px solid @cream;
 
 /* ----------------- COLOR ------------------ */
 
@@ -82,11 +83,11 @@ body {
 }
 
 .red_text {
-    color: rgb(202,67,75);
+    color: @red;
 }
 
 .cream_text {
-    color: rgb(255,248,238);
+    color: @cream;
 }
 
 
@@ -305,20 +306,6 @@ a {
 
 .text_shadow {
     text-shadow: 1px 1px 1px  rgba(0,0,0, .2);
-}
-
-body.sub {
-    main  {
-        background: linear-gradient(to right, @red @sub_left, @transparent @sub_left);
-    }
-    aside {
-        float: left;
-        width: @sub_left;
-    }
-    section {
-        float: right;
-        width: @sub_right;
-    }
 }
 
 
@@ -1040,50 +1027,51 @@ main .cta .btn_normal:hover {
 
 /* ----------------- Main SOCIALS ------------------ */
 
-.social {
-    text-align: center;
-    transform:translateY(10%);
-    opacity: 0;
-    transition: 1s;
+.index {
+    .social {
+        text-align: center;
+        transform:translateY(10%);
+        opacity: 0;
+        transition: 1s;
+    }
+    
+    .social.scroll_on {
+        transform: none;
+        opacity: 1;
+    }
+    
+    
+    .social h2 {
+        margin-bottom: 27px;
+    }
+    
+    .social p {
+        margin-bottom: 40px;
+    }
+    
+    .social a {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        margin-right: 35px;
+    }
+    
+    .social .kakao {
+        background: @url_sprite no-repeat -150px -350px;
+    }
+    
+    .social .kakao:hover {
+        background: @url_sprite no-repeat -300px -350px;
+    }
+    
+    .social .twitter {
+        background: @url_sprite no-repeat -450px -350px;
+    }
+    
+    .social .twitter:hover {
+        background: @url_sprite no-repeat -600px -350px;
+    }
 }
-
-.social.scroll_on {
-    transform: none;
-    opacity: 1;
-}
-
-
-.social h2 {
-    margin-bottom: 27px;
-}
-
-.social p {
-    margin-bottom: 40px;
-}
-
-.social a {
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    margin-right: 35px;
-}
-
-.social .kakao {
-    background: @url_sprite no-repeat -150px -350px;
-}
-
-.social .kakao:hover {
-    background: @url_sprite no-repeat -300px -350px;
-}
-
-.social .twitter {
-    background: @url_sprite no-repeat -450px -350px;
-}
-
-.social .twitter:hover {
-    background: @url_sprite no-repeat -600px -350px;
-}
-
 
 
 /* ----------------- FOOTER  ------------------ */
@@ -1141,27 +1129,136 @@ footer .footer_info .social_links .twitter:hover {
     background: @url_sprite no-repeat -300px -500px;
 }
 
+/* ----------------- SUB -------------------- */
+
+body.sub {
+    main  {
+        background: linear-gradient(to right, @red @sub_left, @transparent @sub_left);
+    }
+    aside {
+        float: left;
+        width: @sub_left;
+        padding: 20px 0;
+        box-sizing: border-box;
+        min-height: 60vh;
+        .red_bak();
+        text-align: center;
+
+        div {
+            display: inline-block;
+            width: 81px;
+            height: 81px;
+            background-image: @url_sprite;
+            background-repeat: no-repeat;
+            margin-bottom: 10px;
+        }
+
+        h2 span { 
+                padding: 10px 0;
+                .cream_text();
+                .content_title_small();
+                .bold();
+                border-bottom: @cream_border_1;
+                       
+        }
+    }
+    section {
+        float: right;
+        width: @sub_right;
+    }
+}
 
 
 
 /* ----------------- INTRODUCE ------------------ */
 
-
-
 .introduce {
+    main {
+        padding-bottom: 100px;
+    }
+    aside {
+        div {
+            background-position: -700px 0px;
+        }
+    }
+    section {
+        text-align: center;
+        margin: 0;
+        padding: 108px 0;
 
-}
+        h3 {
+            .binggrae();
+            .title_small();
+            margin-bottom: 81px;
+        }
 
+        p {
+            .content_big();      
+            line-height: 27px;           
+        }
 
+        .img {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 54px;
 
+            &:after {
+                content:"";
+                position: absolute;
+                top: 0; bottom: 0; left: 0; right: 0;
+                z-index: 2;
+                background-repeat: no-repeat;
+                opacity: 1;
+                transition: 0.5s;
+            }
+        }
 
+        .img.scroll_on:after {
+            opacity: 0;
+        }
+    }
 
-/* ----------------- INTRODUCE   MAP  ------------------ */
+    section.introduce1 {
+        p {
+            margin-bottom: 27px;
+            &:last-child {
+                margin-bottom: 0px;
+            }
+        }        
 
-.introduce .map h2 {
-    padding: 20px 0;
-}
+        .img:after {
+            background-image: url("@{url_images}/building_night.jpg");
+        }
+    }
 
-.introduce .map #map {
-    margin-bottom: 150px;
+    section.introduce2 {
+        .cream_bak();
+
+        .img:after {
+            background-image: url("@{url_images}/doll_off.jpg");
+        }
+
+        p {
+            margin-bottom: 81px;
+        }
+    }
+
+    section.social {
+        div {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            background: @url_sprite no-repeat 0 -600px;
+            margin-bottom: 81px;
+        }
+
+        p {
+            .content_title();
+            line-height: 44px;
+        }
+    }
+
+    section.map {
+
+    }
 }

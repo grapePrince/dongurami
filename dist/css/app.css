@@ -239,17 +239,6 @@ a {
 .text_shadow {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
-body.sub main {
-  background: linear-gradient(to right, #ca434b 170px, rgba(0, 0, 0, 0) 170px);
-}
-body.sub aside {
-  float: left;
-  width: 170px;
-}
-body.sub section {
-  float: right;
-  width: 1000px;
-}
 /* ----------------- LAYOUT ------------------ */
 body {
   overflow-x: hidden;
@@ -868,38 +857,38 @@ main .cta .btn_normal:hover {
   line-height: 27px;
 }
 /* ----------------- Main SOCIALS ------------------ */
-.social {
+.index .social {
   text-align: center;
   transform: translateY(10%);
   opacity: 0;
   transition: 1s;
 }
-.social.scroll_on {
+.index .social.scroll_on {
   transform: none;
   opacity: 1;
 }
-.social h2 {
+.index .social h2 {
   margin-bottom: 27px;
 }
-.social p {
+.index .social p {
   margin-bottom: 40px;
 }
-.social a {
+.index .social a {
   display: inline-block;
   width: 100px;
   height: 100px;
   margin-right: 35px;
 }
-.social .kakao {
+.index .social .kakao {
   background: url("../../resource/images/sprite.png") no-repeat -150px -350px;
 }
-.social .kakao:hover {
+.index .social .kakao:hover {
   background: url("../../resource/images/sprite.png") no-repeat -300px -350px;
 }
-.social .twitter {
+.index .social .twitter {
   background: url("../../resource/images/sprite.png") no-repeat -450px -350px;
 }
-.social .twitter:hover {
+.index .social .twitter:hover {
   background: url("../../resource/images/sprite.png") no-repeat -600px -350px;
 }
 /* ----------------- FOOTER  ------------------ */
@@ -943,11 +932,110 @@ footer .footer_info .social_links .twitter {
 footer .footer_info .social_links .twitter:hover {
   background: url("../../resource/images/sprite.png") no-repeat -300px -500px;
 }
-/* ----------------- INTRODUCE ------------------ */
-/* ----------------- INTRODUCE   MAP  ------------------ */
-.introduce .map h2 {
-  padding: 20px 0;
+/* ----------------- SUB -------------------- */
+body.sub main {
+  background: linear-gradient(to right, #ca434b 170px, rgba(0, 0, 0, 0) 170px);
 }
-.introduce .map #map {
-  margin-bottom: 150px;
+body.sub aside {
+  float: left;
+  width: 170px;
+  padding: 20px 0;
+  box-sizing: border-box;
+  min-height: 60vh;
+  background: #ca434b;
+  text-align: center;
+}
+body.sub aside div {
+  display: inline-block;
+  width: 81px;
+  height: 81px;
+  background-image: url("../../resource/images/sprite.png");
+  background-repeat: no-repeat;
+  margin-bottom: 10px;
+}
+body.sub aside h2 span {
+  padding: 10px 0;
+  color: #fff8ee;
+  font-size: 1.375em;
+  /* 22px */
+  font-weight: 700;
+  border-bottom: 1px solid #fff8ee;
+}
+body.sub section {
+  float: right;
+  width: 1000px;
+}
+/* ----------------- INTRODUCE ------------------ */
+.introduce main {
+  padding-bottom: 100px;
+}
+.introduce aside div {
+  background-position: -700px 0px;
+}
+.introduce section {
+  text-align: center;
+  margin: 0;
+  padding: 108px 0;
+}
+.introduce section h3 {
+  font-family: 'BinggraeTaom', sans-serif;
+  font-size: 2.375em;
+  /* 38px */
+  margin-bottom: 81px;
+}
+.introduce section p {
+  font-size: 1.125em;
+  /* 18px */
+  line-height: 1.125em;
+  line-height: 27px;
+}
+.introduce section .img {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 54px;
+}
+.introduce section .img:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-repeat: no-repeat;
+  opacity: 1;
+  transition: 0.5s;
+}
+.introduce section .img.scroll_on:after {
+  opacity: 0;
+}
+.introduce section.introduce1 p {
+  margin-bottom: 27px;
+}
+.introduce section.introduce1 p:last-child {
+  margin-bottom: 0px;
+}
+.introduce section.introduce1 .img:after {
+  background-image: url("../../resource/images/building_night.jpg");
+}
+.introduce section.introduce2 {
+  background: #fff8ee;
+}
+.introduce section.introduce2 .img:after {
+  background-image: url("../../resource/images/doll_off.jpg");
+}
+.introduce section.introduce2 p {
+  margin-bottom: 81px;
+}
+.introduce section.social div {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background: url("../../resource/images/sprite.png") no-repeat 0 -600px;
+  margin-bottom: 81px;
+}
+.introduce section.social p {
+  font-size: 1.75em;
+  /* 28px */
+  line-height: 44px;
 }

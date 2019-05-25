@@ -12,10 +12,10 @@ export class ScrollElement {
         return this.$scrollBase.offset().top - $(window).height();
     }
     scrollValueHeader() {
-        if (this.$scrollBase) {
+        if (this.$scrollBase.length) {
             return this.$scrollBase.offset().top + this.$scrollBase.height();
         } else {
-            return this.$el.height() * 5;
+            return this.$el.height() * 3;
         }
     }
 }
