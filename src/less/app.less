@@ -27,6 +27,7 @@
 @shadow: rgb(174,139,121);
 @black: rgb(30,27,25);
 @transparent: rgba(0,0,0,0);
+@black_overlay: rgba(0,0,0,0.5);
 
 .cream_bak {
     background: @cream;
@@ -34,6 +35,10 @@
 
 .red_bak {
     background: @red;
+}
+
+.overay_bak {
+    background: @black_overlay;
 }
 
 
@@ -1276,7 +1281,142 @@ body.sub {
     }
 }
 
-
-
-
+ 
 /* ----------------- PROCESS ------------------ */
+
+body.process {
+    aside {
+        div {
+            background-position: -800px 0px;
+        }
+    }
+
+    section {
+        position: relative;
+        padding: 80px 0  80px 100px; 
+        box-sizing: border-box;
+        background-repeat: no-repeat;
+        .cream_text();
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        margin: 0;
+
+        .title_desc {
+            position: relative;
+            z-index: 2;
+            .content_title();
+            margin-bottom: 27px;
+        }
+
+        .sub_desc {
+            position: relative;
+            z-index: 2;
+            .content_title_small();
+            .bold();
+            margin-bottom: 55px;
+        }
+
+        .sub_aside {
+            position: relative;
+            z-index: 2;
+            float: left;
+            width: 300px;
+            height: 400px;
+            background: url("@{url_images}/process_frame.png") no-repeat;
+
+            .menuwindow {
+                position: absolute;
+                width: 214px;
+                height: 43px;
+                left: 40px;
+                background: url("@{url_images}/process_window.gif") no-repeat;
+            }
+        }
+
+        .sub_section {
+            position: relative;
+            z-index: 2;
+            float: right;
+            width: 600px;
+            display: none;
+            padding: 27px 100px;
+            box-sizing: border-box;
+            
+            h3 {
+                .binggrae();
+                .title_small();
+                margin-bottom: 27px;
+            }
+
+            p {
+                line-height: 27px;
+                margin-bottom: 27px;
+            }
+        }
+
+        .background {
+            position: absolute;
+            z-index: 1;
+            top: 0; bottom: 0; left: 0; right: 0;
+            .overay_bak();
+        }
+    }
+
+    section.process1 {
+        background-image: url("@{url_images}/process_1.jpg");
+        .sub_aside .menuwindow {
+            top: 57px;
+        }
+        .sub_section.process1 {
+            display: block;
+        }
+    }
+
+    section.process2 {
+        .sub_aside .menuwindow {
+            top: 107px;
+        }
+        .sub_section.process2 {
+            display: block;
+        }
+    }
+
+    section.process3 {
+        background-image: url("@{url_images}/process_3.jpg");
+        .sub_aside .menuwindow {
+            top: 157px;
+        }
+        .sub_section.process3 {
+            display: block;
+        }
+    }
+
+    section.process4 {
+        background-image: url("@{url_images}/process_4.jpg");
+        .sub_aside .menuwindow {
+            top: 207px;
+        }
+        .sub_section.process4 {
+            display: block;
+        }
+    }
+
+    section.process5 {
+        background-image: url("@{url_images}/process_5.jpg");
+        .sub_aside .menuwindow {
+            top: 257px;
+        }
+        .sub_section.process5 {
+            display: block;
+        }
+    }
+
+    section.process6 {
+        background-image: url("@{url_images}/process_6.jpg");
+        .sub_aside .menuwindow {
+            top: 307px;
+        }
+        .sub_section.process6 {
+            display: block;
+        }
+    }
+}

@@ -9,6 +9,9 @@
 .red_bak {
   background: #ca434b;
 }
+.overay_bak {
+  background: rgba(0, 0, 0, 0.5);
+}
 /* ----------------- TYPOGRAPHY ------------------ */
 body {
   font-family: 'Noto Sans KR', sans-serif;
@@ -1050,4 +1053,126 @@ body.sub section {
   width: 370px;
   height: 370px;
   background: #fff8ee;
+}
+/* ----------------- PROCESS ------------------ */
+body.process aside div {
+  background-position: -800px 0px;
+}
+body.process section {
+  position: relative;
+  padding: 80px 0  80px 100px;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  color: #fff8ee;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+body.process section .title_desc {
+  position: relative;
+  z-index: 2;
+  font-size: 1.75em;
+  /* 28px */
+  margin-bottom: 27px;
+}
+body.process section .sub_desc {
+  position: relative;
+  z-index: 2;
+  font-size: 1.375em;
+  /* 22px */
+  font-weight: 700;
+  margin-bottom: 55px;
+}
+body.process section .sub_aside {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 300px;
+  height: 400px;
+  background: url("../../resource/images/process_frame.png") no-repeat;
+}
+body.process section .sub_aside .menuwindow {
+  position: absolute;
+  width: 214px;
+  height: 43px;
+  left: 40px;
+  background: url("../../resource/images/process_window.gif") no-repeat;
+}
+body.process section .sub_section {
+  position: relative;
+  z-index: 2;
+  float: right;
+  width: 600px;
+  display: none;
+  padding: 27px 100px;
+  box-sizing: border-box;
+}
+body.process section .sub_section h3 {
+  font-family: 'BinggraeTaom', sans-serif;
+  font-size: 2.375em;
+  /* 38px */
+  margin-bottom: 27px;
+}
+body.process section .sub_section p {
+  line-height: 27px;
+  margin-bottom: 27px;
+}
+body.process section .background {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+body.process section.process1 {
+  background-image: url("../../resource/images/process_1.jpg");
+}
+body.process section.process1 .sub_aside .menuwindow {
+  top: 57px;
+}
+body.process section.process1 .sub_section.process1 {
+  display: block;
+}
+body.process section.process2 .sub_aside .menuwindow {
+  top: 107px;
+}
+body.process section.process2 .sub_section.process2 {
+  display: block;
+}
+body.process section.process3 {
+  background-image: url("../../resource/images/process_3.jpg");
+}
+body.process section.process3 .sub_aside .menuwindow {
+  top: 157px;
+}
+body.process section.process3 .sub_section.process3 {
+  display: block;
+}
+body.process section.process4 {
+  background-image: url("../../resource/images/process_4.jpg");
+}
+body.process section.process4 .sub_aside .menuwindow {
+  top: 207px;
+}
+body.process section.process4 .sub_section.process4 {
+  display: block;
+}
+body.process section.process5 {
+  background-image: url("../../resource/images/process_5.jpg");
+}
+body.process section.process5 .sub_aside .menuwindow {
+  top: 257px;
+}
+body.process section.process5 .sub_section.process5 {
+  display: block;
+}
+body.process section.process6 {
+  background-image: url("../../resource/images/process_6.jpg");
+}
+body.process section.process6 .sub_aside .menuwindow {
+  top: 307px;
+}
+body.process section.process6 .sub_section.process6 {
+  display: block;
 }
