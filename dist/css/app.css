@@ -249,7 +249,7 @@ body {
 }
 section,
 section.container {
-  margin-bottom: 120px;
+  margin-bottom: 160px;
 }
 /* ----------------- HEADER ------------------ */
 #hamburger {
@@ -560,6 +560,7 @@ section.container {
 }
 /* ----------------- Main BANNER ------------------ */
 main .banner {
+  margin-bottom: 120px;
   position: relative;
 }
 .header_opened main .banner {
@@ -778,7 +779,7 @@ main .cta .btn_normal:hover {
   opacity: 1;
 }
 .products > div {
-  margin-bottom: 140px;
+  margin-bottom: 160px;
 }
 .products .container {
   position: relative;
@@ -789,7 +790,7 @@ main .cta .btn_normal:hover {
 .products .img {
   position: relative;
   width: 600px;
-  height: 594px;
+  height: 500px;
   cursor: pointer;
   overflow: hidden;
 }
@@ -798,7 +799,7 @@ main .cta .btn_normal:hover {
 }
 .products .img img {
   width: 600px;
-  height: 594px;
+  height: 500px;
   transition: 0.4s;
 }
 .products .twenty .img:hover img {
