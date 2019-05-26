@@ -845,6 +845,11 @@ main .cta .btn_normal:hover {
   transform: translateY(-50%);
   width: 470px;
 }
+.products .desc h3 {
+  font-size: 1.375em;
+  /* 22px */
+  font-weight: 700;
+}
 .products .fifteen .desc {
   left: 0px;
 }
