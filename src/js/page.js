@@ -25,7 +25,7 @@ export default class Page {
         this.$els['hamburger'].on('click', (e) => this.clickHambergur(e));
         this.$els['header_close'].on('click', (e) => this.clickHeaderClose(e));
 
-        this.scrollHandler();
+        this.scrollHandler(); 
     }
 
     getCurrentPage() {
