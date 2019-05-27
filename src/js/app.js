@@ -1,9 +1,9 @@
 // import Common from 'common.js';
-import Main from './main.js';
-import Introduce from './introduce.js';
+import { Main, Introduce, Process } from './pages.js';
 
 const main = new Main();
 const introcude = new Introduce();
+const process = new Process();
 
 $(window).on('load', onload); 
 
@@ -12,9 +12,7 @@ function onload() {
         main.init();    
     } else if (main.getCurrentPage() === 'introduce') {
         introcude.init(); 
+    } else if (main.getCurrentPage() === 'process') {
+        process.init();
     }
 }
-
-
-
-

@@ -1152,7 +1152,7 @@ body.sub {
         width: @sub_left;
         padding: 20px 0;
         box-sizing: border-box;
-        min-height: 60vh;
+        min-height: 692px;
         .red_bak();
         text-align: center;
 
@@ -1299,6 +1299,7 @@ body.process {
         .cream_text();
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
         margin: 0;
+        transition: 0.4s;
 
         .title_desc {
             position: relative;
@@ -1329,6 +1330,7 @@ body.process {
                 height: 43px;
                 left: 40px;
                 background: url("@{url_images}/process_window.gif") no-repeat;
+                transition: 0.4s;
             }
         }
 
@@ -1372,11 +1374,15 @@ body.process {
     }
 
     section.process2 {
+        background-image: url("@{url_images}/process_2.jpg");
         .sub_aside .menuwindow {
             top: 107px;
         }
         .sub_section.process2 {
             display: block;
+        }
+        video {
+            width: 300px;
         }
     }
 

@@ -27,6 +27,6 @@ export class ScrollElement {
         return this.$scrollBase.height() * 2;
     }
     scrollValueIntroduce2() {
-        return this.$scrollBase.offset().top;
+        return this.$scrollBase.offset().top - 100;
     }
 }

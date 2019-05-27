@@ -950,7 +950,7 @@ body.sub aside {
   width: 170px;
   padding: 20px 0;
   box-sizing: border-box;
-  min-height: 60vh;
+  min-height: 692px;
   background: #ca434b;
   text-align: center;
 }
@@ -1066,6 +1066,7 @@ body.process section {
   color: #fff8ee;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   margin: 0;
+  transition: 0.4s;
 }
 body.process section .title_desc {
   position: relative;
@@ -1096,6 +1097,7 @@ body.process section .sub_aside .menuwindow {
   height: 43px;
   left: 40px;
   background: url("../../resource/images/process_window.gif") no-repeat;
+  transition: 0.4s;
 }
 body.process section .sub_section {
   position: relative;
@@ -1134,11 +1136,17 @@ body.process section.process1 .sub_aside .menuwindow {
 body.process section.process1 .sub_section.process1 {
   display: block;
 }
+body.process section.process2 {
+  background-image: url("../../resource/images/process_2.jpg");
+}
 body.process section.process2 .sub_aside .menuwindow {
   top: 107px;
 }
 body.process section.process2 .sub_section.process2 {
   display: block;
+}
+body.process section.process2 video {
+  width: 300px;
 }
 body.process section.process3 {
   background-image: url("../../resource/images/process_3.jpg");

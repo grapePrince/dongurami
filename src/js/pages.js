@@ -30,11 +30,7 @@ export default class Page {
 
     getCurrentPage() {
         const $body = $(document.body);
-        if ($body.hasClass('index')) {
-            return 'index';
-        } else if($body.hasClass('introduce')) {
-            return 'introduce';
-        }
+        return $body.attr("class").split(" ")[0];
     }
 
     scrollHandler() {
@@ -134,4 +130,115 @@ export default class Page {
         }
     }
 
+}
+
+export class Main extends Page {
+    constructor() {
+        super();
+        this.scrollList = [...this.scrollList, 
+            new ScrollElement('cta', $('main .cta'),  $('main .cta')),
+            new ScrollElement('product_twenty', $('.products .twenty'), $(".products .twenty")),
+            new ScrollElement('product_fifteen',  $('.products .fifteen'), $(".products .fifteen")),
+            new ScrollElement('product_diy',  $('.products .diy'), $(".products .diy")),
+            new ScrollElement('social', $('.social'), $('.social'))
+        ];
+    }
+
+    init() {
+        super.init();
+        this.initSwiper();
+    }
+
+    initSwiper() {
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            simulateTouch: false,
+            speed: 1500,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 3500,
+            },
+        });
+    }
+
+}
+
+export class Introduce extends Page {
+    constructor() {
+        super();
+        this.scrollList = [...this.scrollList, 
+             new ScrollElement('introduce1', $('.introduce .introduce1 .img'),  $('.main-header')),
+             new ScrollElement('introduce2', $('.introduce .introduce2 .img'),  $('.introduce .introduce2'))             
+        ];
+    }
+
+    init() {
+        super.init();
+    }
+
+}
+
+
+export class Process extends Page {
+    constructor() {
+        super();
+        this.$elSection = $("main > section");
+    }
+
+    init() {
+        let passiveSupported = false;
+
+        super.init();
+        this.currentScrollTop = $(window).scrollTop();
+
+        try {
+            window.addEventListener("test", null, Object.defineProperty(
+                {}, 
+                "passive", 
+                { get: function() { 
+                    passiveSupported = { passive: true }; 
+                } }
+            ));
+        } catch(err) {}
+
+        if (passiveSupported) {
+            window.addEventListener('wheel', (e) => this.wheelHandler(e), {passive: false});
+        } else {
+            $(window).on('wheel', (e) => this.wheelHandler(e));
+        }
+    }
+
+    wheelHandler(e) {
+        const delta = (e.originalEvent) ? e.originalEvent.deltaY : e.deltaY;
+        const sectionClassList = this.$elSection.attr("class").split(" ");
+        let currentNumber = Number(sectionClassList[0].slice(-1));
+        let nextClassName;
+
+        // scroll down
+        if (delta > 0) {
+            if (currentNumber !== 6) {
+                currentNumber++;
+                e.preventDefault();
+            }
+        // scroll up
+        } else {
+            if (currentNumber > 1 && $(window).scrollTop() === 0) {
+                currentNumber--;
+            } 
+        }
+            
+        sectionClassList.shift();
+        nextClassName = `process${currentNumber} ${sectionClassList.join(" ")}`;
+        this.$elSection.attr("class", nextClassName);
+
+        if (currentNumber === 2) {
+            $("video").get(0).currentTime = 0;
+            $("video").get(0).play();
+        }
+    }
 }
