@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>제작공정</title>
+    <title>인형사진</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -28,7 +28,7 @@
     <script src="lib/js/jquey.js"></script>
 </head>
 
-<body class="process sub">
+<body class="sample sub">
     <header class="main-header">
         <div class="hamburger shadow"></div>
         <div class="close"></div>
@@ -117,65 +117,36 @@
 
     <main class="container clearfix">
         <aside>
-            <div class="hidden_text">제작공정아이콘</div>
-            <h2><span>제작공정</span></h2>
+            <div class="hidden_text">인형사진아이콘</div>
+            <h2><span>인형사진</span></h2>
         </aside>
-        <section class="process1 clearfix">
-            <p class="title_desc">인형들은 아래와 같은 공정을 거쳐 완성됩니다.</p>
-            <p class="sub_desc">여러분의 인형은 어느 단계에 와 있을까요?</p>
-            <div class="sub_aside">
-                <span class="menuwindow hidden_text">서브메뉴그림</span>
-            </div>
-            <div class="process1 sub_section">
-                <h3>자수파일 설계</h3>
-                <p>
-                    자수 파일을 설계해요.<br>
-                    여러분이 전달해주신 시안을 가지고 자수 프로그램에 입력할 파일로 만듭니다.<br>시안을 토대로 자수 기계 전용 디자인 파일을 제작합니다.
-                </p>
-            </div>
-            <div class="process2 sub_section">
-                <h3>자수제작</h3>
-                <p>
-                    자수 기계가 열심히 움직이며 얼굴 자수를 제작합니다.<br>
-                    실 색을 잘못 넣거나 기계에 손을 넣으면 큰일이지요.<br>기계가 멈추는 일은 별 일이 아닙니다.                         
-                </p>
-                <video class="process2" muted poster="resource/images/process_2.jpg">
-                    <source src="resource/videos/process_2.ogv" type="video/ogv">
-                    <source src="resource/videos/process_2.mp4" type="video/mp4">
-                    <source src="resource/videos/process_2.webm" type="video/webm">
-                    <img src="resource/images/process_2.jpg">
-                </video>                
-            </div>
-            <div class="process3 sub_section">
-                <h3>커팅</h3>
-                <p>
-                    자수가 완성된 천을 커팅하는 단계입니다.<br>
-                    레이저 커팅기를 활용하여 정밀하게 천을 자르고 있습니다.<br>
-                    레이저 커팅기가 없으면 가위로 자르면 되지만 손목이 아프다는 단점이 있어요.
-                </p>
-            </div>
-            <div class="process4 sub_section">
-                <h3>재봉</h3>
-                <p>
-                    바느질을 해서 천을 이어요.<br>
-                    재봉이 끝나고 솜을 넣으면 인형이 완성됩니다.<br>솜은 손이 작고 빠른 사람이 더 잘 넣을 수 있답니다.                  
-                </p>
-            </div>
-            <div class="process5 sub_section">
-                <h3>포장</h3>
-                <p>
-                    완성된 아가들은 극세사 팬티를 입고 하얀 부직포 가방안에서 신청자님과 만날 준비를 합니다.<br>>
-                    처음 아가들을 만날 때 가장 예쁜 모습으로 만나실 수 있도록 노력하고 있습니다.   
-                </p>
-            </div>
-            <div class="process6 sub_section">
-                <h3>배송</h3>
-                <p>
-                    마지막은 배송입니다.<br>
-                    정성을 담은 인형들이기 때문에 언제나 자식을 떠나 보내는 기분으로 배송합니다.
-                </p>
-            </div>
-            <div class="background"></div>
+        <section class="">
+            <label class="hidden_text" for="filter">모아보기</label>
+            <select id="filter" value="">
+                <option value="all">전체보기</option>
+                <option value="twenty">꼬마</option>
+                <option value="fifteen">꼬꼬마</option>
+                <option value="DIY">DIY</option>
+                <option value="company">기업용</option>
+            </select>
+            <ul class="sample_list">
+                <li class="sample_item" data-height="400px" data-top="0px">
+                    <img src="resource/images/samples/item001.jpg" alt="item001">
+                    <span class="detail">크게보기</span>
+                </li>
+                <li class="sample_item" data-height="500px" data-top="0px">
+                    <img src="resource/images/samples/item002.jpg" alt="item001">
+                    <span class="detail">크게보기</span>
+                </li>
+                <li class="sample_item" data-height="600px" data-top="481px">
+                    <img src="resource/images/samples/item003.jpg" alt="item001">
+                    <span class="detail">크게보기</span>
+                </li>
+                <li class="sample_item" data-height="400px" data-top="581px">
+                    <img src="resource/images/samples/item004.jpg" alt="item001">
+                    <span class="detail">크게보기</span>
+                </li>
+            </ul>
         </section>
     </main>
 

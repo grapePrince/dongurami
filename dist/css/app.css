@@ -1184,3 +1184,9 @@ body.process section.process6 .sub_aside .menuwindow {
 body.process section.process6 .sub_section.process6 {
   display: block;
 }
+body.sample aside div {
+  background-position: -100px -100px;
+}
+body.sample section {
+  padding: 54px 60px;
+}
