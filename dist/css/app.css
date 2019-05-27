@@ -1189,4 +1189,29 @@ body.sample aside div {
 }
 body.sample section {
   padding: 54px 60px;
+  box-sizing: border-box;
+}
+body.sample section .sample_list {
+  position: relative;
+  height: 1080px;
+  overflow: scroll-y;
+}
+body.sample section .sample_list .sample_item {
+  position: absolute;
+}
+body.sample section .sample_list .sample_item:nth-child(2n+1) {
+  left: 0;
+}
+body.sample section .sample_list .sample_item:nth-child(2n) {
+  left: 480px;
+}
+body.sample section .sample_list .sample_item img {
+  width: 400px;
+}
+body.sample section .sample_list .sample_item .detail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

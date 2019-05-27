@@ -242,3 +242,15 @@ export class Process extends Page {
         }
     }
 }
+
+export class Sample extends Page {
+    constructor() {
+        super();
+    }
+
+    init() {
+        super.init();
+        $("#filter").selectmenu();
+    }
+
+}

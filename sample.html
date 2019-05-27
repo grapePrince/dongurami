@@ -25,7 +25,9 @@
     <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" type="text/css" href="dist/css/app.css">
+    <link rel="stylesheet" href="lib/css/jquery-ui.css">
     <script src="lib/js/jquey.js"></script>
+    <script src="lib/js/jquery-ui.js"></script>
 </head>
 
 <body class="sample sub">
@@ -121,8 +123,8 @@
             <h2><span>인형사진</span></h2>
         </aside>
         <section class="">
-            <label class="hidden_text" for="filter">모아보기</label>
             <select id="filter" value="">
+                <option disabled selected value="filter">모아보기</option>
                 <option value="all">전체보기</option>
                 <option value="twenty">꼬마</option>
                 <option value="fifteen">꼬꼬마</option>
@@ -130,19 +132,19 @@
                 <option value="company">기업용</option>
             </select>
             <ul class="sample_list">
-                <li class="sample_item" data-height="400px" data-top="0px">
+                <li class="sample_item" style="top: 0px">
                     <img src="resource/images/samples/item001.jpg" alt="item001">
                     <span class="detail">크게보기</span>
                 </li>
-                <li class="sample_item" data-height="500px" data-top="0px">
+                <li class="sample_item" style="top: 0px">
                     <img src="resource/images/samples/item002.jpg" alt="item001">
                     <span class="detail">크게보기</span>
                 </li>
-                <li class="sample_item" data-height="600px" data-top="481px">
+                <li class="sample_item" style="top: 347px">
                     <img src="resource/images/samples/item003.jpg" alt="item001">
                     <span class="detail">크게보기</span>
                 </li>
-                <li class="sample_item" data-height="400px" data-top="581px">
+                <li class="sample_item" style="top: 347px">
                     <img src="resource/images/samples/item004.jpg" alt="item001">
                     <span class="detail">크게보기</span>
                 </li>

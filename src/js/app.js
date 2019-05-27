@@ -1,9 +1,10 @@
 // import Common from 'common.js';
-import { Main, Introduce, Process } from './pages.js';
+import { Main, Introduce, Process, Sample } from './pages.js';
 
 const main = new Main();
 const introcude = new Introduce();
 const process = new Process();
+const sample = new Sample();
 
 $(window).on('load', onload); 
 
@@ -14,5 +15,7 @@ function onload() {
         introcude.init(); 
     } else if (main.getCurrentPage() === 'process') {
         process.init();
+    } else if (main.getCurrentPage() === 'sample') {
+        sample.init();
     }
 }

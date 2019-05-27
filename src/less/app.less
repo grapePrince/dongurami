@@ -1435,9 +1435,32 @@ body.sample {
     }
     section {
         padding: 54px 60px;
+        box-sizing: border-box;
 
-        select {
+        .sample_list {
+            position: relative;
+            height: 1080px;
+            overflow: scroll-y;
 
+            .sample_item {
+                position: absolute;
+                &:nth-child(2n+1) {
+                    left: 0;
+                }
+                &:nth-child(2n) {
+                    left: 480px;                   
+                }
+                img {
+                    width: 400px;
+                }
+                .detail {
+                    position: absolute;
+                    top: 0; bottom: 0; left: 0; right: 0;
+                }
+            }
         }
+    }
+    #filter_menu {
+
     }
 }
