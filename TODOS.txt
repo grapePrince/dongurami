@@ -1,16 +1,6 @@
 
 
-img 가 로드된 다음에 height 를 받아오는 걸로 바꾼다. 
-odd 랑 even 을 잘 구분해서 넣어준다. 
-
-js - list 뿌려주기
-js - .sample_list height 계산해서 넣어주기 
-js - 
-스크롤 내리면 로딩아이콘 돌다가 1초 뒤에 다음 리스트들이 붙도록 처리. 
-
-
 로그인 & 조인  HTML CSS 
-
 
 
 수요일 - 발표준비 
@@ -39,3 +29,6 @@ html - paging
 css - select
 css - list item
 css - 로딩 아이콘 
+js - list 뿌려주기
+js - .sample_list height 계산해서 넣어주기 
+js - 스크롤 내리면 로딩아이콘 돌다가 1초 뒤에 다음 리스트들이 붙도록 처리. 

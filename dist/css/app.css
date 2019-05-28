@@ -1197,7 +1197,6 @@ body.sample section {
 }
 body.sample section .sample_list {
   position: relative;
-  overflow: scroll-y;
   clear: right;
 }
 body.sample section .sample_list .sample_item {

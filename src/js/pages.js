@@ -250,8 +250,9 @@ export class Sample extends Page {
         this.sampleList_height_even = 0;
         this.margin = 80;
         this.imageWidth = 400;
+        this.loadQueue = 0;
 
-        this.listTemplate = '<li class="sample_item before_calculate"><img src="resource/images/samples/item{{ItemName}}.jpg" alt="item{{ItemName}}"><a href="" class="detail btn_normal btn_dark_normal btn_slide ">크게보기</a></li>';
+        this.listTemplate = '<li class="sample_item before_calculate {{ItemClass}}"><img src="resource/images/samples/item{{ItemName}}.jpg" alt="item{{ItemName}}"><a href="" class="detail btn_normal btn_dark_normal btn_slide ">크게보기</a></li>';
     }
 
     init() {
@@ -282,15 +283,15 @@ export class Sample extends Page {
             const listHtml = this.generateNext10FileListHtml();
             $(".sample_list").append(listHtml);
             this.caculateTop();
-            $('.loading').removeClass('off');
         }, 3000);
     }
 
     generateNext10FileListHtml() {
         let returnHtml = "";
         for(let i = 0 ; i < 10 ; i++) {
-            const fileName = this.pad(this.randomNumber(1, 30));
-            returnHtml += this.listTemplate.replace('{{ItemName}}', fileName);
+            const fileName = this.pad(this.randomNumber(1, 30));            
+            returnHtml += this.listTemplate.replace('{{ItemName}}', fileName)
+                              .replace("{{ItemClass}}", (i%2 === 0) ? "even" : "odd");
         }
         return returnHtml;
     }
@@ -304,24 +305,47 @@ export class Sample extends Page {
     }
 
     caculateTop() {
-        const itemListOdd = $('.sample_list .sample_item.before_calculate:nth-child(2n+1)');
-        const itemListEven = $('.sample_list .sample_item.before_calculate:nth-child(2n)');
+        const itemList = $('.sample_list .sample_item.before_calculate');
 
-        this.calculate(itemListOdd, this.sampleList_height_odd);
-        this.calculate(itemListEven, this.sampleList_height_even);
-
-        $(".sample_list").css("height:", Math.max(this.sampleList_height_even, this.sampleList_height_odd) + "px");
+        for( let i = 0 ; i < itemList.length ; i++) {
+            const $item = $(itemList[i]);
+            const $img =  $item.find("img");
+            const renderHeight = $img.height();
+            this.loadQueue++;
+            if (renderHeight > 0) {
+                this.imageLoaded($item);
+            } else {
+                $img.on("load", () => this.imageLoaded($item));
+            }           
+        }
     }
 
-    calculate(itemList, list_height, left) {
-        for( let i = 0 ; i < itemList.length ; i++) {
-            const item = $(itemList[i]);
-            const $img =  item.find("img");
-            const renderHeight = $img.height();
-            item.css("top", list_height);
-            item.css("left", left);
-            item.removeClass("before_calculate");
-            list_height = list_height + renderHeight + 80;
+    imageLoaded($item) {
+        const $img =  $item.find("img");
+        const renderHeight = $img.height();
+        const isEven = $item.hasClass("even");
+        let list_height;
+        let left;
+
+        if (isEven) {
+            list_height = this.sampleList_height_even;
+            this.sampleList_height_even = this.sampleList_height_even + renderHeight + 80;
+            left = 0;
+        } else {
+            list_height = this.sampleList_height_odd;
+            left = 480;
+            this.sampleList_height_odd = this.sampleList_height_odd + renderHeight + 80;
+        }
+
+        $item.css("top", `${list_height}px`);
+        $item.css("left", `${left}px`);
+        $item.removeClass("before_calculate");              
+
+        this.loadQueue--;
+        
+        if(this.loadQueue === 0) {
+            $(".sample_list").css("height", `${Math.max(this.sampleList_height_even, this.sampleList_height_odd)}px`);
+            $('.loading').removeClass('on');
         }
     }
 
