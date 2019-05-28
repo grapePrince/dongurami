@@ -28,20 +28,21 @@
 @black: rgb(30,27,25);
 @transparent: rgba(0,0,0,0);
 @black_overlay: rgba(0,0,0,0.5);
+@gradient_hover_5: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5));
+@gradient_hover_3: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.3));
 
 .cream_bak {
     background: @cream;
 }
-
+.cream_dark_bak {
+    background: @cream_dark;
+}
 .red_bak {
     background: @red;
 }
-
 .overay_bak {
     background: @black_overlay;
 }
-
-
 
 
 /* ----------------- TYPOGRAPHY ------------------ */
@@ -697,7 +698,7 @@ main .banner li {
 
 main .banner li.happy {
     text-align: center;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)), url("@{url_images}/banner_bg1.jpg");
+    background-image: @gradient_hover_5, url("@{url_images}/banner_bg1.jpg");
 }
 
 main .banner li.happy .texts {
@@ -713,7 +714,7 @@ main .banner li.happy h2 {
 
 main .banner li.diy_update {
     text-align: right;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)), url("@{url_images}/banner_bg2.jpg");
+    background-image: @gradient_hover_5, url("@{url_images}/banner_bg2.jpg");
 }
 
 main .banner li.diy_update .texts {
@@ -724,7 +725,7 @@ main .banner li.diy_update .texts {
 
 main .banner li.twitter_detail {
     text-align: left;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)), url("@{url_images}/banner_bg3.jpg");
+    background-image: @gradient_hover_5, url("@{url_images}/banner_bg3.jpg");
 }
 
 main .banner li.twitter_detail .texts {
@@ -987,7 +988,7 @@ main .cta .btn_normal:hover {
     position: absolute;
     top: 0; bottom: 0; left: 0; right: 0; 
     z-index: 1;
-    background: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.3));
+    background: @gradient_hover_3;
     opacity: 0;
     transition: 0.4s;
 }
@@ -1435,15 +1436,19 @@ body.sample {
     }
     section {
         padding: 54px 60px;
+        margin: 0;
         box-sizing: border-box;
 
         .sample_list {
             position: relative;
-            height: 1080px;
             overflow: scroll-y;
-
+            clear: right;
+            
             .sample_item {
                 position: absolute;
+                top: -99999em;
+                cursor: pointer;
+
                 &:nth-child(2n+1) {
                     left: 0;
                 }
@@ -1454,13 +1459,98 @@ body.sample {
                     width: 400px;
                 }
                 .detail {
+                    .binggrae();
+                    position: absolute;
+                    z-index: 3;
+                    bottom: 40px;
+                    left: 50%; transform: translateX(-50%);
+                    opacity: 0;
+                    transition: 0.4s;
+                }
+
+                &:after {
+                    content: "";
                     position: absolute;
                     top: 0; bottom: 0; left: 0; right: 0;
+                    z-index: 2;
+                    background: @gradient_hover_3;
+                    opacity: 0;
+                    transition: 0.4s;
+                }
+
+                &:hover {
+                    &:after { opacity: 1; }
+                    .detail { opacity: 1; }
                 }
             }
         }
-    }
-    #filter_menu {
 
+        #filter-button {
+            float: right;
+            border: @red_border_1;
+            background: none;
+            padding: 20px 25px;
+            width: 145px;
+            box-sizing: border-box;
+            outline: none;
+            margin-bottom: 54px;
+    
+            .ui-selectmenu-icon {
+                background: @url_sprite no-repeat -500px -100px;
+                margin: 4px 0px;
+                width: 10px;
+                height: 10px;
+            }
+            .ui-selectmenu-text {
+                .binggrae();
+                .red_text(); 
+                .content_big();
+            }
+    
+        } 
+
+        #filter-button[aria-expanded=true] {
+            .cream_bak();
+                border: 1px solid @cream_dark;
+                .shadow_inset();
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            div {
+                display: inline-block;   
+            }
+
+            object {
+                width: 100px;
+            }
+        }
+
+        .loading.on {
+            display: block;
+        }    
+    }
+
+    #filter-menu {
+        .shadow();
+        border: none;
+        text-align: center;
+        padding: 20px 0;
+
+        .ui-menu-item {
+            .ui-menu-item-wrapper {
+                padding: 12px 45px;
+                .red_text();
+            }
+
+            .ui-menu-item-wrapper.ui-state-active {
+                border: none;
+                .cream_bak();
+                .shadow();
+                .bold();
+            }
+        }
+        
     }
 }

@@ -187,7 +187,7 @@ export class Introduce extends Page {
 export class Process extends Page {
     constructor() {
         super();
-        this.$elSection = $("main > section");
+        this.$elSection = $('main > section');
     }
 
     init() {
@@ -197,9 +197,9 @@ export class Process extends Page {
         this.currentScrollTop = $(window).scrollTop();
 
         try {
-            window.addEventListener("test", null, Object.defineProperty(
+            window.addEventListener('test', null, Object.defineProperty(
                 {}, 
-                "passive", 
+                'passive', 
                 { get: function() { 
                     passiveSupported = { passive: true }; 
                 } }
@@ -233,12 +233,12 @@ export class Process extends Page {
         }
             
         sectionClassList.shift();
-        nextClassName = `process${currentNumber} ${sectionClassList.join(" ")}`;
+        nextClassName = `process${currentNumber} ${sectionClassList.join(' ')}`;
         this.$elSection.attr("class", nextClassName);
 
         if (currentNumber === 2) {
-            $("video").get(0).currentTime = 0;
-            $("video").get(0).play();
+            $('video').get(0).currentTime = 0;
+            $('video').get(0).play();
         }
     }
 }
@@ -246,11 +246,83 @@ export class Process extends Page {
 export class Sample extends Page {
     constructor() {
         super();
+        this.sampleList_height_odd = 0;
+        this.sampleList_height_even = 0;
+        this.margin = 80;
+        this.imageWidth = 400;
+
+        this.listTemplate = '<li class="sample_item before_calculate"><img src="resource/images/samples/item{{ItemName}}.jpg" alt="item{{ItemName}}"><a href="" class="detail btn_normal btn_dark_normal btn_slide ">크게보기</a></li>';
     }
 
     init() {
         super.init();
-        $("#filter").selectmenu();
+        $("#filter").selectmenu({
+                position: {
+                    at: 'center bottom',   // 이 위치에다가
+                    my: 'center top'         // 이 위치를 맞춘다
+                }
+            }
+        );
+
+        this.renderSampleList();
+    }
+
+    scrollHandler() {
+        super.scrollHandler();
+
+        // 스크롤이 끝에 닿으면 샘플 리스트를 더 로드한다. 
+        if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+            this.renderSampleList();
+        }
+    }
+
+    renderSampleList() {
+        $('.loading').addClass('on');
+        setTimeout(() => {
+            const listHtml = this.generateNext10FileListHtml();
+            $(".sample_list").append(listHtml);
+            this.caculateTop();
+            $('.loading').removeClass('off');
+        }, 3000);
+    }
+
+    generateNext10FileListHtml() {
+        let returnHtml = "";
+        for(let i = 0 ; i < 10 ; i++) {
+            const fileName = this.pad(this.randomNumber(1, 30));
+            returnHtml += this.listTemplate.replace('{{ItemName}}', fileName);
+        }
+        return returnHtml;
+    }
+
+    pad(number) {
+        return ('00' + number).slice(-3);
+    }
+
+    randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    caculateTop() {
+        const itemListOdd = $('.sample_list .sample_item.before_calculate:nth-child(2n+1)');
+        const itemListEven = $('.sample_list .sample_item.before_calculate:nth-child(2n)');
+
+        this.calculate(itemListOdd, this.sampleList_height_odd);
+        this.calculate(itemListEven, this.sampleList_height_even);
+
+        $(".sample_list").css("height:", Math.max(this.sampleList_height_even, this.sampleList_height_odd) + "px");
+    }
+
+    calculate(itemList, list_height, left) {
+        for( let i = 0 ; i < itemList.length ; i++) {
+            const item = $(itemList[i]);
+            const $img =  item.find("img");
+            const renderHeight = $img.height();
+            item.css("top", list_height);
+            item.css("left", left);
+            item.removeClass("before_calculate");
+            list_height = list_height + renderHeight + 80;
+        }
     }
 
 }
