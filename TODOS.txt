@@ -1,16 +1,4 @@
 
-
-input 에 focus 가 가면 scroll을 scroll top으로 
-
-아이디를 입력 안함
-비밀번호를 입력 안함
-아이디 형식이 틀렸을 경우 
-비밀번호 형식이 틀렸을 경우 
-wrong 이 나타난다. 
-
-input 에 focus가 가면 해당 input 의 wrong 을 삭제한다.
-
-
 (완료한것들)
 인덱스쪽 글씨 쭐이기. 프로덕트쪽 
 제작공정 HTML 잡기
@@ -38,3 +26,8 @@ js - 스크롤 내리면 로딩아이콘 돌다가 1초 뒤에 다음 리스트�
 로그인, 조인 이미지 저장
 로그인, 조인 html 잡기
 로그인, 조인 css 잡기 
+input 에 focus가 가면 해당 input 의 wrong 을 삭제한다.
+입력형식이 틀린 경우 wrong 넣기 js 
+wrong 스타일 잡기
+로그인까지 완료 
+wrong 넣을 때 input 흔들어주기 

@@ -360,23 +360,207 @@ export class Sample extends Page {
 
 export class Login extends Page {
     constructor() {
-        super();       
+        super();     
+        this.scrollTopActivated = false;
+        
+        this.$emailInput = $("input.email");
+        this.$passwordInput = $("input.password");
+
+        this.CLEAN = 0;
+        this.NO_EMAIL = 1;
+        this.NO_PASSWORD = 2;
     }
 
     init() {
         super.init();
+        $("input").on("focusin", (e) => this.focusHandler(e));
+        $("form .btn_normal").on("click", (e) => this.clickButtonHandler(e));
     }
 
+    focusHandler(e) {
+        const $current = $(e.currentTarget);
+        if (!this.scrollTopActivated) {
+            $(window).scrollTop($(document).height());
+            this.scrollTopActivated = true;
+        }
+
+        $current.removeClass("wrong");
+        $current.removeClass("shake-horizontal");
+
+        if ($("form input.wrong").length === 0) {
+            $("form").removeClass("wrong");
+        }
+
+    }
+
+    clickButtonHandler(e) {
+    
+        e.preventDefault();
+
+        $("input.wrong").removeClass("wrong");
+        $(".shake-horizontal").removeClass("shake-horizontal");
+
+        setTimeout(() => {
+            let state = this.CLEAN;
+            const elList = [this.$passwordInput, this.$emailInput];
+            for (let i = 0 ; i < elList.length ; i++) {
+                let $el = elList[i];
+                let elState = this.validateEl($el);
+                if (elState !== this.CLEAN) {
+                    $el.addClass("wrong");
+                    $el.addClass("shake-horizontal");
+                    state = elState;
+                }
+            }
+    
+            if (state !== this.CLEAN) {
+                switch(state) {
+                    case this.NO_EMAIL:
+                        $("form p.wrong span").get(0).innerHTML = "이메일을 확인해주세요.";
+                        break;
+                    case this.NO_PASSWORD:
+                        $("form p.wrong span").get(0).innerHTML = "비밀번호를 확인해주세요.";
+                        break;
+                }
+            }
+    
+            if ($("form input.wrong").length > 0) {
+                $("form").addClass("wrong");
+                $(window).scrollTop($(document).height());
+                this.scrollTopActivated = true;
+            } else {
+                window.location.href = "index.html";
+                alert("로그인 완료");
+            }
+    
+        }, 10);
+        
+    }
+
+    validateEl($el) {
+        const value = $el.val();
+        if (!value) {
+            if ($el.hasClass("email")) {
+                return this.NO_EMAIL;
+            } else if($el.hasClass("password")) {
+                return this.NO_PASSWORD;
+            } 
+        } 
+       
+        return this.CLEAN;
+    }
 }
 
 export class Join extends Page {
     constructor() {
-        super();       
+        super();     
+        this.scrollTopActivated = false;
+        
+        this.$emailInput = $("input.email");
+        this.$passwordInput = $("input.password");
+        this.$confirmInput = $("input.confirm");
+
+        this.CLEAN = 0;
+        this.NO_EMAIL = 1;
+        this.NO_PASSWORD = 2;
+        this.NO_PASSWORD_CONFIRM = 3;
+        this.DIFFERENT_CONFIRM = 4;
     }
 
     init() {
         super.init();
+        $("input").on("focusin", (e) => this.focusHandler(e));
+        $("form .btn_normal").on("click", (e) => this.clickButtonHandler(e));
     }
+
+    focusHandler(e) {
+        const $current = $(e.currentTarget);
+        if (!this.scrollTopActivated) {
+            $(window).scrollTop($(document).height());
+            this.scrollTopActivated = true;
+        }
+
+        $current.removeClass("wrong");
+        $current.removeClass("shake-horizontal");
+
+        if ($("form input.wrong").length === 0) {
+            $("form").removeClass("wrong");
+        }
+
+    }
+
+    clickButtonHandler(e) {
+        let state = this.CLEAN;
+        const elList = [this.$confirmInput, this.$passwordInput, this.$emailInput];
+
+        e.preventDefault();
+        $("input.wrong").removeClass("wrong");
+        $(".shake-horizontal").removeClass("shake-horizontal");
+
+        setTimeout(() => {
+
+            for (let i = 0 ; i < elList.length ; i++) {
+                let $el = elList[i];
+                let elState = this.validateEl($el);
+                if (elState !== this.CLEAN) {
+                    $el.addClass("wrong");
+                    $el.addClass("shake-horizontal");
+                    state = elState;
+                }
+            }
+
+            if (state !== this.CLEAN) {
+                switch(state) {
+                    case this.NO_EMAIL:
+                        $("form p.wrong span").get(0).innerHTML = "이메일을 입력하지 않았습니다.<br>확인해주세요.";
+                        break;
+                    case this.NO_PASSWORD:
+                        $("form p.wrong span").get(0).innerHTML = "비밀번호를 입력하지 않았습니다.<br>확인해주세요.";
+                        break;
+                    case this.NO_PASSWORD_CONFIRM:
+                        $("form p.wrong span").get(0).innerHTML = "비밀번호 확인란을 입력하지 않았습니다.<br>확인해주세요.";
+                        break;
+                    case this.DIFFERENT_CONFIRM:
+                        $("form p.wrong span").get(0).innerHTML = "비밀번호와 비밀번화 확인의 입력이 다릅니다.<br>확인해주세요.";
+                        break;    
+                }
+            }
+
+            if ($("form input.wrong").length > 0) {
+                $("form").addClass("wrong");
+                $(window).scrollTop($(document).height());
+                this.scrollTopActivated = true;
+            } else {
+                window.location.href = "index.html";
+                alert("가입에 성공하였습니다.");
+
+            }
+
+        }, 10);
+
+    }
+
+    validateEl($el) {
+        const value = $el.val();
+        if (!value) {
+            if ($el.hasClass("email")) {
+                return this.NO_EMAIL;
+            } else if($el.hasClass("password")) {
+                return this.NO_PASSWORD;
+            } else if ($el.hasClass("confirm")) {
+                return this.NO_PASSWORD_CONFIRM;
+            }
+        } 
+
+        if ($el.hasClass("confirm")) {
+            const passValue = this.$passwordInput.val();
+            if ( passValue != value) {
+                return this.DIFFERENT_CONFIRM;
+            }
+        }
+        return this.CLEAN;
+    }
+
 
 }
 

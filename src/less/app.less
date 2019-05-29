@@ -125,6 +125,7 @@ body {
     border: 2px solid rgb(202,67,75);
     .transparent_back();
     cursor: pointer;
+    outline: none;
 }
 
 .btn_normal:hover {
@@ -1614,7 +1615,7 @@ body.login, body.join {
                 .cream_bak();
                 border: @cream_dark_border_1;
                 width: 349px; height: 47px;
-                margin-bottom: 40px;
+                margin-bottom: 25px;
                 border-radius: 5px;
                 padding: 15px 20px;
                 box-sizing: border-box;
@@ -1629,12 +1630,26 @@ body.login, body.join {
                 }
             }
 
+            input.confirm {
+                margin-bottom: 20px;
+            }
+
             input[type="email"]:focus, input[type="password"]:focus {
                 border: @pink_border_1;
             }
 
-            .wrong {
-                display:none;
+            p.wrong {
+                width: 349px;
+                display: none;
+                margin-bottom: 20px;
+
+                span {
+                    display: block;
+                    text-align: left;
+                    .red_text();
+                    .small();
+                    line-height: 18px;                   
+                }
             }
 
             .btn_normal {
@@ -1648,6 +1663,9 @@ body.login, body.join {
         form.wrong {
             input[type="email"].wrong, input[type="password"].wrong {
                 border: @red_border_1;
+            }
+            p.wrong {
+                display:inline-block;
             }
         }
 
@@ -1675,4 +1693,38 @@ body.login, body.join {
         }
         
     }    
+}
+
+
+@keyframes shake-horizontal {
+    15% {
+        transform: translate(-7px, 0) rotate(0)
+    }
+
+    30% {
+        transform: translate(3px, 0) rotate(0)
+    }
+
+    45% {
+        transform: translate(-5px, 0) rotate(0)
+    }
+
+    60% {
+        transform: translate(8px, 0) rotate(0)
+    }
+
+    75% {
+        transform: translate(-2px, 0) rotate(0)
+    }
+
+    0%,100% {
+        transform: translate(0, 0) rotate(0)
+    }
+}
+
+.shake-horizontal {
+    animation-name: shake-horizontal;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
 }

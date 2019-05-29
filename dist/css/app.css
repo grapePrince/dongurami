@@ -81,6 +81,7 @@ body {
   border: 2px solid #ca434b;
   background: rgba(0, 0, 0, 0);
   cursor: pointer;
+  outline: none;
 }
 .btn_normal:hover {
   background: #ca434b;
@@ -1359,7 +1360,7 @@ body.join main form input[type="password"] {
   border: 1px solid #ffeed6;
   width: 349px;
   height: 47px;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   border-radius: 5px;
   padding: 15px 20px;
   box-sizing: border-box;
@@ -1379,15 +1380,31 @@ body.join main form input[type="password"]::placeholder {
   line-height: 1.125em;
   color: #ae8b79;
 }
+body.login main form input.confirm,
+body.join main form input.confirm {
+  margin-bottom: 20px;
+}
 body.login main form input[type="email"]:focus,
 body.join main form input[type="email"]:focus,
 body.login main form input[type="password"]:focus,
 body.join main form input[type="password"]:focus {
   border: 1px solid #f5b1a2;
 }
-body.login main form .wrong,
-body.join main form .wrong {
+body.login main form p.wrong,
+body.join main form p.wrong {
+  width: 349px;
   display: none;
+  margin-bottom: 20px;
+}
+body.login main form p.wrong span,
+body.join main form p.wrong span {
+  display: block;
+  text-align: left;
+  color: #ca434b;
+  font-size: 0.875em;
+  /* 14px */
+  line-height: 0.875em;
+  line-height: 18px;
 }
 body.login main form .btn_normal,
 body.join main form .btn_normal {
@@ -1402,6 +1419,10 @@ body.join main form.wrong input[type="email"].wrong,
 body.login main form.wrong input[type="password"].wrong,
 body.join main form.wrong input[type="password"].wrong {
   border: 1px solid #ca434b;
+}
+body.login main form.wrong p.wrong,
+body.join main form.wrong p.wrong {
+  display: inline-block;
 }
 body.login main .bottom,
 body.join main .bottom {
@@ -1431,4 +1452,31 @@ body.join main .bottom .goto a {
   margin-left: 20px;
   padding-bottom: 3px;
   border-bottom: 1px solid #ca434b;
+}
+@keyframes shake-horizontal {
+  15% {
+    transform: translate(-7px, 0) rotate(0);
+  }
+  30% {
+    transform: translate(3px, 0) rotate(0);
+  }
+  45% {
+    transform: translate(-5px, 0) rotate(0);
+  }
+  60% {
+    transform: translate(8px, 0) rotate(0);
+  }
+  75% {
+    transform: translate(-2px, 0) rotate(0);
+  }
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+.shake-horizontal {
+  animation-name: shake-horizontal;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
