@@ -147,6 +147,8 @@ export class Main extends Page {
     init() {
         super.init();
         this.initSwiper();
+
+        $(".feature_services li").on("click", (e) => this.featureListClick(e));
     }
 
     initSwiper() {
@@ -164,6 +166,12 @@ export class Main extends Page {
                 delay: 3500,
             },
         });
+    }
+
+    featureListClick(e) {
+        const $current = $(e.currentTarget);
+        const href = $current.data("href");
+        window.location.href = href;
     }
 
 }
