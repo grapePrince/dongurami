@@ -357,3 +357,26 @@ export class Sample extends Page {
     }
 
 }
+
+export class Login extends Page {
+    constructor() {
+        super();       
+    }
+
+    init() {
+        super.init();
+    }
+
+}
+
+export class Join extends Page {
+    constructor() {
+        super();       
+    }
+
+    init() {
+        super.init();
+    }
+
+}
+

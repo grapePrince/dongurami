@@ -1,6 +1,5 @@
 @charset "utf-8";
 @import url("../../lib/css/reset.css");
-@import url("../../lib/css/font.css");
 /* ----------------- VALUES ------------------ */
 /* ----------------- COLOR ------------------ */
 .cream_bak {
@@ -15,6 +14,9 @@
 .overay_bak {
   background: rgba(0, 0, 0, 0.5);
 }
+.transparent_back {
+  background: rgba(0, 0, 0, 0);
+}
 /* ----------------- TYPOGRAPHY ------------------ */
 body {
   font-family: 'Noto Sans KR', sans-serif;
@@ -25,6 +27,9 @@ body {
 }
 .binggrae {
   font-family: 'BinggraeTaom', sans-serif;
+}
+.noto {
+  font-family: 'Noto Sans KR', sans-serif;
 }
 .title {
   font-size: 2.75em;
@@ -61,6 +66,9 @@ body {
 .cream_text {
   color: #fff8ee;
 }
+.pink_text {
+  color: #f5b1a2;
+}
 /* ----------------- BUTTON ------------------ */
 .btn_normal {
   display: inline-block;
@@ -71,8 +79,11 @@ body {
   border-radius: 5px;
   color: #ca434b;
   border: 2px solid #ca434b;
+  background: rgba(0, 0, 0, 0);
+  cursor: pointer;
 }
 .btn_normal:hover {
+  background: #ca434b;
   color: #fff8ee;
 }
 .btn_small {
@@ -135,6 +146,10 @@ body {
   border: none;
   overflow: hidden;
   transition: 0.3s;
+  background: rgba(0, 0, 0, 0);
+}
+.btn_slide:hover {
+  background: rgba(0, 0, 0, 0);
 }
 .btn_slide:before,
 .btn_slide a:before {
@@ -177,6 +192,12 @@ body {
 }
 .btn_dark_em.btn_slide:after {
   background: #f5b1a2;
+}
+.red_link {
+  color: #ca434b;
+}
+.red_link:hover {
+  color: #f5b1a2;
 }
 /* ----------------- LINK ------------------ */
 a.link_cream_bak {
@@ -438,8 +459,10 @@ section.container {
   display: none;
 }
 .main-header nav {
-  float: left;
-  margin-left: 40px;
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .main-header a {
   color: #ca434b;
@@ -471,7 +494,6 @@ section.container {
 }
 .main-header nav > ul > li div {
   position: absolute;
-  z-index: 100;
   background: #fff8ee;
   padding: 40px;
   width: 211px;
@@ -1297,4 +1319,116 @@ body.sample #filter-menu .ui-menu-item .ui-menu-item-wrapper.ui-state-active {
   background: #fff8ee;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   font-weight: 700;
+}
+body.login main,
+body.join main {
+  padding: 80px 0;
+  text-align: center;
+}
+body.login main h2,
+body.join main h2 {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background: url("../../resource/images/sprite.png") no-repeat -200px -600px;
+  margin-bottom: 45px;
+}
+body.login main h3,
+body.join main h3 {
+  font-size: 2.375em;
+  /* 38px */
+  font-family: 'BinggraeTaom', sans-serif;
+  line-height: 44px;
+}
+body.login main .desc,
+body.join main .desc {
+  font-size: 1.375em;
+  /* 22px */
+  line-height: 44px;
+  margin-bottom: 44px;
+}
+body.login main form input,
+body.join main form input {
+  display: inline-block;
+}
+body.login main form input[type="email"],
+body.join main form input[type="email"],
+body.login main form input[type="password"],
+body.join main form input[type="password"] {
+  background: #fff8ee;
+  border: 1px solid #ffeed6;
+  width: 349px;
+  height: 47px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  color: #1e1b19;
+  font-size: 1.125em;
+  /* 18px */
+  line-height: 1.125em;
+  font-family: 'Noto Sans KR', sans-serif;
+  outline: none;
+}
+body.login main form input[type="email"]::placeholder,
+body.join main form input[type="email"]::placeholder,
+body.login main form input[type="password"]::placeholder,
+body.join main form input[type="password"]::placeholder {
+  font-size: 1.125em;
+  /* 18px */
+  line-height: 1.125em;
+  color: #ae8b79;
+}
+body.login main form input[type="email"]:focus,
+body.join main form input[type="email"]:focus,
+body.login main form input[type="password"]:focus,
+body.join main form input[type="password"]:focus {
+  border: 1px solid #f5b1a2;
+}
+body.login main form .wrong,
+body.join main form .wrong {
+  display: none;
+}
+body.login main form .btn_normal,
+body.join main form .btn_normal {
+  display: inline-block;
+  font-family: 'BinggraeTaom', sans-serif;
+  font-size: 1.125em;
+  /* 18px */
+  line-height: 1.125em;
+}
+body.login main form.wrong input[type="email"].wrong,
+body.join main form.wrong input[type="email"].wrong,
+body.login main form.wrong input[type="password"].wrong,
+body.join main form.wrong input[type="password"].wrong {
+  border: 1px solid #ca434b;
+}
+body.login main .bottom,
+body.join main .bottom {
+  margin-top: 80px;
+}
+body.login main .bottom .terms,
+body.join main .bottom .terms {
+  font-size: 0.875em;
+  /* 14px */
+  line-height: 0.875em;
+  width: 270px;
+  line-height: 19px;
+  display: inline-block;
+}
+body.login main .bottom .goto,
+body.join main .bottom .goto {
+  margin-top: 30px;
+  font-size: 1.125em;
+  /* 18px */
+  line-height: 1.125em;
+}
+body.login main .bottom .goto a,
+body.join main .bottom .goto a {
+  font-size: 1.125em;
+  /* 18px */
+  line-height: 1.125em;
+  margin-left: 20px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #ca434b;
 }

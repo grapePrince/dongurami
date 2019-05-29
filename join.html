@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>인형사진</title>
+    <title>가입</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -26,12 +26,10 @@
 
     <link rel="stylesheet" type="text/css" href="dist/css/app.css">
     <link rel="stylesheet" type="text/css" href="lib/css/font.css">
-    <link rel="stylesheet" href="lib/css/jquery-ui.css">
     <script src="lib/js/jquey.js"></script>
-    <script src="lib/js/jquery-ui.js"></script>
 </head>
 
-<body class="sample sub">
+<body class="join">
     <header class="main-header">
             <div class="hamburger shadow"></div>
             <div class="close"></div>
@@ -119,56 +117,24 @@
     </header>
 
     <main class="container clearfix">
-        <aside>
-            <div class="hidden_text">인형사진아이콘</div>
-            <h2><span>인형사진</span></h2>
-        </aside>
-        <section class="clearfix">
-            <select id="filter" value="">
-                <option disabled selected value="filter">모아보기</option>
-                <option value="all">전체보기</option>
-                <option value="twenty">꼬마</option>
-                <option value="fifteen">꼬꼬마</option>
-                <option value="diy">DIY</option>
-            </select>
-            <ul class="sample_list">
-                <!-- <li class="sample_item" style="top: 0px">
-                    <img src="resource/images/samples/item001.jpg" alt="item001">
-                    <a href="" class="detail btn_normal btn_dark_normal btn_slide ">크게보기</a>
-                </li> -->
-            </ul>
-            <div class="loading">
-                <div>
-                    <object type="image/svg+xml" data="resource/svg/loading.svg">
-                        <img src="resource/images/loading.gif" alt="loading">
-                    </object>
-                </div>
-                
-            </div>            
-        </section>
+        <h2 class="hidden_text">Logo</h2>
+        <h3>가입하기</h3>
+        <p class="desc">행복을 제작하세요.</p>
+        <form action="" method="">
+            <input type="email" placeholder="이메일"><br>
+            <input type="password" placeholder="비밀번호"><br>
+            <input type="password" placeholder="비밀번호 확인">
+            <p class="wrong">비밀번호는 8자 이상이어야 합니다.<br>8자 이상을 입력해주세요.</p>
+            <div><input class="btn_normal" type="submit" value="가입하기"></div>
+        </form>
+        <div class="bottom">
+            <p class="terms">계정 생성시 사용 약관 및 개인정보 취급 방침에 자동으로 동의합니다.</p>
+            <p class="goto">이미 가입하셨나요? <a class="red_link" href="login.html">로그인하기</a></p>
+        </div>
     </main>
 
-    <footer>
-        <div class="footer_info container small">
-            <ul class="menu clearfix">
-                <li><a href="" class="small link_pink_bak">동그라미소개</a></li>
-                <li><a href="" class="small link_pink_bak">상담하기</a></li>
-                <li><a href="" class="small link_pink_bak">자주묻는질문</a></li>
-                <li><a href="" class="small link_pink_bak">환불정책</a></li>
-            </ul>
-            <p>
-                상호명 : 라미의 아틀리에 대표 : 박은지 메일: eunjip8711@naver.com 사업자등록번호 : 613-24-62263<br>
-                전화 : 010-7327-5112  주소 : 경기도 화성시 동탄대로 677-5 519호 개인정보관리자 : 박은지 <br>
-                본 사이트의 콘텐츠는 저작권법의 보호를 받는바, 무단 전재, 복사, 배포 등을 금합니다. <br>
-            </p>
-            <div class="social_links">
-                <a href="" class="twitter hidden_text">twitter</a>
-                <a href="" class="kakao hidden_text">kakao</a>
-            </div>
-        </div>
-    </footer>
-
     <script src="dist/js/app.js"></script>
+
 </body>
 
 </html>
