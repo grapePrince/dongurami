@@ -252,7 +252,7 @@ export class Sample extends Page {
         this.imageWidth = 400;
         this.loadQueue = 0;
 
-        this.listTemplate = '<li class="sample_item before_calculate {{ItemClass}}"><img src="resource/images/samples/item{{ItemName}}.jpg" alt="item{{ItemName}}"><a href="" class="detail btn_normal btn_dark_normal btn_slide ">크게보기</a></li>';
+        this.listTemplate = '<li class="sample_item before_calculate"><img src="resource/images/samples/item{{ItemName}}.jpg" alt="item{{ItemName}}"><a href="" class="detail btn_normal btn_dark_normal btn_slide ">크게보기</a></li>';
     }
 
     init() {
@@ -289,7 +289,7 @@ export class Sample extends Page {
         setTimeout(() => {
             const listHtml = this.generateNext10FileListHtml();
             $(".sample_list").append(listHtml);
-            this.caculateTop();
+            this.caculatePosition();
         }, 3000);
     }
 
@@ -297,8 +297,7 @@ export class Sample extends Page {
         let returnHtml = "";
         for(let i = 0 ; i < 10 ; i++) {
             const fileName = this.pad(this.randomNumber(1, 30));            
-            returnHtml += this.listTemplate.replace('{{ItemName}}', fileName)
-                              .replace("{{ItemClass}}", (i%2 === 0) ? "even" : "odd");
+            returnHtml += this.listTemplate.replace('{{ItemName}}', fileName);
         }
         return returnHtml;
     }
@@ -311,7 +310,7 @@ export class Sample extends Page {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    caculateTop() {
+    caculatePosition() {
         const itemList = $('.sample_list .sample_item.before_calculate');
 
         for( let i = 0 ; i < itemList.length ; i++) {
@@ -330,7 +329,7 @@ export class Sample extends Page {
     imageLoaded($item) {
         const $img =  $item.find("img");
         const renderHeight = $img.height();
-        const isEven = $item.hasClass("even");
+        const isEven = (this.sampleList_height_even <= this.sampleList_height_odd);
         let list_height;
         let left;
 
@@ -342,7 +341,7 @@ export class Sample extends Page {
             list_height = this.sampleList_height_odd;
             left = 480;
             this.sampleList_height_odd = this.sampleList_height_odd + renderHeight + 80;
-        }
+        } 
 
         $item.css("top", `${list_height}px`);
         $item.css("left", `${left}px`);
