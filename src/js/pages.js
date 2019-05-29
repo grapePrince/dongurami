@@ -265,6 +265,13 @@ export class Sample extends Page {
             }
         );
 
+        const urlList = location.href.split('?');
+        if (urlList.length > 0) {
+            const query = urlList[1];
+            $('#filter').val(query);
+            $("#filter").selectmenu("refresh");
+        }
+
         this.renderSampleList();
     }
 
