@@ -274,7 +274,7 @@ export class Sample extends Page {
         );
 
         const urlList = location.href.split('?');
-        if (urlList.length > 0) {
+        if (urlList.length > 1) {
             const query = urlList[1];
             $('#filter').val(query);
             $("#filter").selectmenu("refresh");
