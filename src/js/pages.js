@@ -295,6 +295,9 @@ export class Sample extends Page {
     renderSampleList() {
         $('.loading').addClass('on');
         setTimeout(() => {
+            if (this.loadQueue > 0) {
+                return;
+            }
             const listHtml = this.generateNext10FileListHtml();
             $(".sample_list").append(listHtml);
             this.caculatePosition();
@@ -320,14 +323,14 @@ export class Sample extends Page {
 
     caculatePosition() {
         const itemList = $('.sample_list .sample_item.before_calculate');
+        this.loadQueue += itemList.length;
 
         for( let i = 0 ; i < itemList.length ; i++) {
             const $item = $(itemList[i]);
             const $img =  $item.find("img");
             const renderHeight = $img.height();
-            this.loadQueue++;
+           
             if (renderHeight > 0) {
-                debugger;
                 this.imageLoadedLogic($item, $img);
             } else {
                 $img.on("load", (e) => this.imageLoaded(e));
@@ -347,6 +350,10 @@ export class Sample extends Page {
         let list_height;
         let left;
 
+        if (!$item.hasClass("before_calculate")) {
+            return;
+        }
+
         if (isEven) {
             list_height = this.sampleList_height_even;
             left = 0;
@@ -354,8 +361,6 @@ export class Sample extends Page {
             list_height = this.sampleList_height_odd;
             left = 480;
         }  
-
-        console.log(list_height);
 
         $item.css("top", `${list_height}px`);
         $item.css("left", `${left}px`);
