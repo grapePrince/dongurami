@@ -24,6 +24,12 @@
     <meta name="msapplication-TileImage" content="resource/images/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
+    <meta property="og:title" content="동그라미 인형공방">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="동그라미 인형공방에 어서오세요.">
+    <meta property="og:image" content="http://rahata.dothome.co.kr/site/resource/images/logo.JPG">
+    <meta property="og:url" content="http://rahata.dothome.co.kr">
+
     <link rel="stylesheet" type="text/css" href="dist/css/app.css">    
     <script src="lib/js/jquey.js"></script>    
 </head>
@@ -129,17 +135,18 @@
             <p>캐릭터 인형, 아이돌 인형, 나만의 인형의 제작하고 싶으신가요?<br>항상 노력하는 자세로 최상의 서비스를 제공해 드립니다.</p>
         </section>
         <section class="introduce2">
-                <div class="img">
-                    <img src="resource/images/doll_on.jpg" alt="doll">
-                </div>
-                <p>힘이 들 때마다 떠올리는것이 있습니다.<br>그것은 인형을 받아든 고객님의 행복한 미소입니다.</p>
-                <h3>여러분의 기쁨이 동그라미의 힘이 됩니다.</h3>
+            <div class="img">
+                <img src="resource/images/doll_on.jpg" alt="doll">
+            </div>
+            <p>힘이 들 때마다 떠올리는것이 있습니다.<br>그것은 인형을 받아든 고객님의 행복한 미소입니다.</p>
+            <h3>여러분의 기쁨이 동그라미의 힘이 됩니다.</h3>
         </section>
         <section class="map">
-            <h3>어디에서 인형이 만들어지고 있을까요?</h2>
+            <h3>어디에서 인형이 만들어지고 있을까요?</h3>
             <div id="map"></div>
         </section>
         <section class="social">
+            <h3 class="hidden_text">소셜</h3>
             <div></div>
             <p>트위터에서 동그라미 인형 공방을 구독해 주세요.<br>RT 이벤트에 참여하시면 특별한 기회가 찾아옵니다.</p>
         </section>
@@ -167,7 +174,7 @@
 
     <script src="dist/js/app.js"></script>
     <link rel="stylesheet" type="text/css" href="lib/css/font.css">
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c1f729e1bf96a61fb0fbd31fdec01a36"></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c1f729e1bf96a61fb0fbd31fdec01a36"></script>
     <script>
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = { 
