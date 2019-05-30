@@ -1297,10 +1297,13 @@ body.sample section .loading {
   text-align: center;
 }
 body.sample section .loading div {
+  width: 100px;
+  height: 100px;
   display: inline-block;
 }
-body.sample section .loading object {
-  width: 100px;
+body.sample section .loading div img {
+  width: 100%;
+  height: 100%;
 }
 body.sample section .loading.on {
   display: block;
