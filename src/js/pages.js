@@ -305,7 +305,7 @@ export class Sample extends Page {
         let returnHtml = "";
         for(let i = 0 ; i < 10 ; i++) {
             const fileName = this.pad(this.randomNumber(1, 30));            
-            returnHtml += this.listTemplate.replace('{{ItemName}}', fileName);
+            returnHtml += this.listTemplate.replace(/{{ItemName}}/g, fileName);
         }
         return returnHtml;
     }
@@ -327,15 +327,21 @@ export class Sample extends Page {
             const renderHeight = $img.height();
             this.loadQueue++;
             if (renderHeight > 0) {
-                this.imageLoaded($item);
+                debugger;
+                this.imageLoadedLogic($item, $img);
             } else {
-                $img.on("load", () => this.imageLoaded($item));
+                $img.on("load", (e) => this.imageLoaded(e));
             }           
         }
     }
 
-    imageLoaded($item) {
-        const $img =  $item.find("img");
+    imageLoaded(e) {
+        const $item = $(e.currentTarget.parentElement);
+        const $img =  $(e.currentTarget);
+        this.imageLoadedLogic($item, $img);        
+    }
+
+    imageLoadedLogic($item, $img) {
         const renderHeight = $img.height();
         const isEven = (this.sampleList_height_even <= this.sampleList_height_odd);
         let list_height;
@@ -343,20 +349,25 @@ export class Sample extends Page {
 
         if (isEven) {
             list_height = this.sampleList_height_even;
-            this.sampleList_height_even = this.sampleList_height_even + renderHeight + 80;
             left = 0;
         } else {
             list_height = this.sampleList_height_odd;
             left = 480;
-            this.sampleList_height_odd = this.sampleList_height_odd + renderHeight + 80;
-        } 
+        }  
+
+        console.log(list_height);
 
         $item.css("top", `${list_height}px`);
         $item.css("left", `${left}px`);
         $item.removeClass("before_calculate");              
 
-        this.loadQueue--;
-        
+        if (isEven) {
+            this.sampleList_height_even = this.sampleList_height_even + renderHeight + 80;
+        } else {
+            this.sampleList_height_odd = this.sampleList_height_odd + renderHeight + 80;
+        }
+
+        this.loadQueue--;        
         if(this.loadQueue === 0) {
             $(".sample_list").css("height", `${Math.max(this.sampleList_height_even, this.sampleList_height_odd)}px`);
             $('.loading').removeClass('on');
