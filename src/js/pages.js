@@ -330,7 +330,7 @@ export class Sample extends Page {
             const $img =  $item.find("img");
             const renderHeight = $img.height();
            
-            if (renderHeight > 0) {
+            if (renderHeight > 0 && $img.get(0).complete) {
                 this.imageLoadedLogic($item, $img);
             } else {
                 $img.on("load", (e) => this.imageLoaded(e));
