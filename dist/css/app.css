@@ -1483,3 +1483,8 @@ body.join main .bottom .goto a {
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
+
+.terms a {
+  padding-bottom: 2px;
+  border-bottom: 1px solid #ca434b;
+}
