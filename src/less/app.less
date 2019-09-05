@@ -594,7 +594,7 @@ section, section.container {
 .main-header nav > ul > li:hover > a:after {
     background: @url_sprite no-repeat -600px -100px;
 }
-
+ 
 .main-header nav > ul > li div {
     position: absolute;
     background: rgb(255,248,238);
@@ -1092,25 +1092,27 @@ main .cta .btn_normal:hover {
     
     .social a {
         display: inline-block;
-        width: 100px;
-        height: 100px;
-        margin-right: 35px;
+        width: 60px;
+        height: 60px;
+        margin-right: 24px;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
     
     .social .kakao {
-        background: @url_sprite no-repeat -150px -350px;
+        background-image: url("@{url_images}/kakao.png");
     }
     
     .social .kakao:hover {
-        background: @url_sprite no-repeat -300px -350px;
+        background-image: url("@{url_images}/kakao_hover.png");
     }
     
     .social .twitter {
-        background: @url_sprite no-repeat -450px -350px;
+        background-image: url("@{url_images}/twitter.png");
     }
     
     .social .twitter:hover {
-        background: @url_sprite no-repeat -600px -350px;
+        background-image: url("@{url_images}/twitter_hover.png");
     }
 }
 
@@ -1148,65 +1150,56 @@ footer .footer_info .social_links {
 }
 
 footer .footer_info .social_links a {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     margin-left: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
 footer .footer_info .social_links  .kakao {
-    background: @url_sprite no-repeat 0px -500px;
+    background-image: url("@{url_images}/kakao.png");
 }
 
 footer .footer_info .social_links .kakao:hover {
-    background: @url_sprite no-repeat -100px -500px;
+    background-image: url("@{url_images}/kakao_hover.png");
 }
 
 footer .footer_info .social_links .twitter {
-    background: @url_sprite no-repeat -200px -500px;
+    background-image: url("@{url_images}/twitter.png");
 }
 
 footer .footer_info .social_links .twitter:hover {
-    background: @url_sprite no-repeat -300px -500px;
+    background-image: url("@{url_images}/twitter_hover.png");
 }
 
 /* ----------------- SUB -------------------- */
 
-body.sub {
-    main  {
-        background: linear-gradient(to right, @red @sub_left, @transparent @sub_left);
-    }
-    aside {
-        float: left;
-        width: @sub_left;
-        padding: 20px 0;
-        box-sizing: border-box;
-        min-height: 692px;
-        .red_bak();
-        text-align: center;
+body.sub aside {
+  background: #ca434b;
+}
 
-        div {
-            display: inline-block;
-            width: 81px;
-            height: 81px;
-            background-image: @url_sprite;
-            background-repeat: no-repeat;
-            margin-bottom: 10px;
-        }
-
-        h2 span { 
-                padding: 10px 0;
-                .cream_text();
-                .content_title_small();
-                .bold();
-                border-bottom: @cream_border_1;
-                       
-        }
-    }
-    section {
-        float: right;
-        width: @sub_right;
-    }
+.sub_aside__icon {
+  float: left;
+  display: inline-block;
+  width: 81px;
+  height: 81px;
+  background-image: url("../../resource/images/sprite.png");
+  background-repeat: no-repeat;
+}
+.sub_aside__text__container {
+  float: left;
+  color: #fff8ee;
+  font-size: 1.375em;
+  font-weight: 700;
+  line-height: 81px;
+  height: 81px;
+}
+.sub_aside__text {
+  padding-bottom: 2px;
+  margin-left: 5px;
+  border-bottom: 1px solid #fff8ee;
 }
 
 
@@ -1285,17 +1278,15 @@ body.sub {
     }
 
     section.social {
+        padding: 20px 0;
+
         div {
             display: inline-block;
-            width: 150px;
-            height: 150px;
-            background: @url_sprite no-repeat 0 -600px;
-            margin-bottom: 81px;
-        }
-
-        p {
-            .content_title();
-            line-height: 44px;
+            width: 81px;
+            height: 81px;
+            background: url("../../resource/images/twitter.png") no-repeat;
+            background-size: cover;
+            margin-bottom: 54px;
         }
     }
 
@@ -1325,9 +1316,10 @@ body.process {
         padding: 80px 0  80px 100px; 
         box-sizing: border-box;
         background-repeat: no-repeat;
+        background-size: cover;
         .cream_text();
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-        margin: 0;
+        margin: 80px 0;
         transition: 0.4s;
 
         .title_desc {
@@ -1470,6 +1462,7 @@ body.sample {
         .sample_list {
             position: relative;
             clear: right;
+            margin-left: 81px;
             
             .sample_item {
                 position: absolute;
@@ -1730,4 +1723,9 @@ body.login, body.join {
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+}
+
+.terms a {
+  padding-bottom: 2px;
+  border-bottom: 1px solid #ca434b;
 }

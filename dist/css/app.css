@@ -924,7 +924,6 @@ main .cta .btn_normal:hover {
 }
 .index .social .twitter {
   background-image: url("../../resource/images/twitter.png");
-  
 }
 .index .social .twitter:hover {
   background-image: url("../../resource/images/twitter_hover.png");
@@ -972,14 +971,10 @@ footer .footer_info .social_links .twitter {
 footer .footer_info .social_links .twitter:hover {
   background-image: url("../../resource/images/twitter_hover.png");
 }
-
 /* ----------------- SUB -------------------- */
-
-
 body.sub aside {
   background: #ca434b;
 }
-
 .sub_aside__icon {
   float: left;
   display: inline-block;
@@ -1001,8 +996,6 @@ body.sub aside {
   margin-left: 5px;
   border-bottom: 1px solid #fff8ee;
 }
-
-
 /* ----------------- INTRODUCE ------------------ */
 .introduce main {
   padding-bottom: 100px;
@@ -1065,6 +1058,9 @@ body.sub aside {
 .introduce section.introduce2 p {
   margin-bottom: 81px;
 }
+.introduce section.social {
+  padding: 20px 0;
+}
 .introduce section.social div {
   display: inline-block;
   width: 81px;
@@ -1073,11 +1069,6 @@ body.sub aside {
   background-size: cover;
   margin-bottom: 54px;
 }
-
-.introduce section.social {
-  padding: 20px 0;
-}
-
 .introduce section.map #map {
   display: inline-block;
   width: 370px;
@@ -1489,7 +1480,6 @@ body.join main .bottom .goto a {
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
-
 .terms a {
   padding-bottom: 2px;
   border-bottom: 1px solid #ca434b;
