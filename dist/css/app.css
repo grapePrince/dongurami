@@ -1226,6 +1226,7 @@ body.sample section {
 body.sample section .sample_list {
   position: relative;
   clear: right;
+  margin-left: 81px;
 }
 body.sample section .sample_list .sample_item {
   position: absolute;
