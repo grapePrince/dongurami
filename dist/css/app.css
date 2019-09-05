@@ -1095,7 +1095,7 @@ body.process section {
   background-size: cover;
   color: #fff8ee;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  margin: 0;
+  margin: 80px 0;
   transition: 0.4s;
 }
 body.process section .title_desc {
