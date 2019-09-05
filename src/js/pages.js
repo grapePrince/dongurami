@@ -281,6 +281,10 @@ export class Sample extends Page {
         }
 
         this.renderSampleList();
+
+        
+        $('.sample_list').on('click', '.sample_item', (e) => this.sampleImageClicked(e));
+        $('.layer_lightbox').on('click', (e) => this.lightBoxClicked(e) );
     }
 
     scrollHandler() {
@@ -377,6 +381,24 @@ export class Sample extends Page {
             $(".sample_list").css("height", `${Math.max(this.sampleList_height_even, this.sampleList_height_odd)}px`);
             $('.loading').removeClass('on');
         }
+    }
+
+    sampleImageClicked(e) {
+      var $image = $(e.currentTarget).find('img');
+      var src = $image.attr('src');
+      $('.layer_lightbox').addClass('js-active');
+      $('.layer_lightbox__image').attr('src', src);
+      if($image.height() > $image.width()) {
+        $('.layer_lightbox__image__container').css({ 'width' : 'auto' });
+        $('.layer_lightbox__image').css({ 'width' : 'auto' });
+      } else {
+        $('.layer_lightbox__image__container').css({ 'width' : '80%' });
+        $('.layer_lightbox__image').css({ 'width' : '100%' });
+      }
+    }
+
+    lightBoxClicked() {
+      $('.layer_lightbox').removeClass('js-active');
     }
 
 }
