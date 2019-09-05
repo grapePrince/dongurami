@@ -910,21 +910,24 @@ main .cta .btn_normal:hover {
 }
 .index .social a {
   display: inline-block;
-  width: 100px;
-  height: 100px;
-  margin-right: 35px;
+  width: 60px;
+  height: 60px;
+  margin-right: 24px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .index .social .kakao {
-  background: url("../../resource/images/sprite.png") no-repeat -150px -350px;
+  background-image: url("../../resource/images/kakao.png");
 }
 .index .social .kakao:hover {
-  background: url("../../resource/images/sprite.png") no-repeat -300px -350px;
+  background-image: url("../../resource/images/kakao_hover.png");
 }
 .index .social .twitter {
-  background: url("../../resource/images/sprite.png") no-repeat -450px -350px;
+  background-image: url("../../resource/images/twitter.png");
+  
 }
 .index .social .twitter:hover {
-  background: url("../../resource/images/sprite.png") no-repeat -600px -350px;
+  background-image: url("../../resource/images/twitter_hover.png");
 }
 /* ----------------- FOOTER  ------------------ */
 footer {
@@ -951,22 +954,25 @@ footer .footer_info .social_links {
   bottom: 40px;
 }
 footer .footer_info .social_links a {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   margin-left: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 footer .footer_info .social_links .kakao {
-  background: url("../../resource/images/sprite.png") no-repeat 0px -500px;
+  background-image: url("../../resource/images/kakao.png");
 }
 footer .footer_info .social_links .kakao:hover {
-  background: url("../../resource/images/sprite.png") no-repeat -100px -500px;
+  background-image: url("../../resource/images/kakao_hover.png");
 }
 footer .footer_info .social_links .twitter {
-  background: url("../../resource/images/sprite.png") no-repeat -200px -500px;
+  background-image: url("../../resource/images/twitter.png");
 }
 footer .footer_info .social_links .twitter:hover {
-  background: url("../../resource/images/sprite.png") no-repeat -300px -500px;
+  background-image: url("../../resource/images/twitter_hover.png");
 }
+
 /* ----------------- SUB -------------------- */
 
 
