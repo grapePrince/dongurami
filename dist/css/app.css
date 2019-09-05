@@ -1067,16 +1067,17 @@ body.sub aside {
 }
 .introduce section.social div {
   display: inline-block;
-  width: 150px;
-  height: 150px;
-  background: url("../../resource/images/sprite.png") no-repeat 0 -600px;
-  margin-bottom: 81px;
+  width: 81px;
+  height: 81px;
+  background: url("../../resource/images/twitter.png") no-repeat;
+  background-size: cover;
+  margin-bottom: 54px;
 }
-.introduce section.social p {
-  font-size: 1.75em;
-  /* 28px */
-  line-height: 44px;
+
+.introduce section.social {
+  padding: 20px 0;
 }
+
 .introduce section.map #map {
   display: inline-block;
   width: 370px;
