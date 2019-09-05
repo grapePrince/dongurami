@@ -968,38 +968,35 @@ footer .footer_info .social_links .twitter:hover {
   background: url("../../resource/images/sprite.png") no-repeat -300px -500px;
 }
 /* ----------------- SUB -------------------- */
-body.sub main {
-  background: linear-gradient(to right, #ca434b 170px, rgba(0, 0, 0, 0) 170px);
-}
+
+
 body.sub aside {
-  float: left;
-  width: 170px;
-  padding: 20px 0;
-  box-sizing: border-box;
-  min-height: 692px;
   background: #ca434b;
-  text-align: center;
 }
-body.sub aside div {
+
+.sub_aside__icon {
+  float: left;
   display: inline-block;
   width: 81px;
   height: 81px;
   background-image: url("../../resource/images/sprite.png");
   background-repeat: no-repeat;
-  margin-bottom: 10px;
 }
-body.sub aside h2 span {
-  padding: 10px 0;
+.sub_aside__text__container {
+  float: left;
   color: #fff8ee;
   font-size: 1.375em;
-  /* 22px */
   font-weight: 700;
+  line-height: 81px;
+  height: 81px;
+}
+.sub_aside__text {
+  padding-bottom: 2px;
+  margin-left: 5px;
   border-bottom: 1px solid #fff8ee;
 }
-body.sub section {
-  float: right;
-  width: 1000px;
-}
+
+
 /* ----------------- INTRODUCE ------------------ */
 .introduce main {
   padding-bottom: 100px;
@@ -1089,6 +1086,7 @@ body.process section {
   padding: 80px 0  80px 100px;
   box-sizing: border-box;
   background-repeat: no-repeat;
+  background-size: cover;
   color: #fff8ee;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   margin: 0;
