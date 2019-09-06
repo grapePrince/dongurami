@@ -24,6 +24,7 @@ export default class Page {
         this.$els['gnb_menu_sublist'].on('mouseenter', (e) => this.hoverGnbMenuSubList(e));
         this.$els['hamburger'].on('click', (e) => this.clickHambergur(e));
         this.$els['header_close'].on('click', (e) => this.clickHeaderClose(e));
+        $('a[href="#"]').on('click', (e) => this.blackLinkClicked(e));
 
         this.scrollHandler(); 
     }
@@ -48,12 +49,13 @@ export default class Page {
             if ( scroll > currentEl.scrollValue()) {
                 currentEl.$el.addClass('scroll_on');
             } 
-            // else if ( scroll <= currentEl.scrollValue()) {
-            //     currentEl.$el.removeClass('scroll_on');
-            //     if (currentEl.name === 'header') {
-            //         $body.removeClass('header_opened');
-            //     }
-            // }
+            else if ( scroll <= currentEl.scrollValue()) {
+                // currentEl.$el.removeClass('scroll_on');
+                if (currentEl.name === 'header') {
+                  currentEl.$el.removeClass('scroll_on');
+                  $body.removeClass('header_opened');
+                }
+            }
         }
     }
 
@@ -129,6 +131,10 @@ export default class Page {
         } else {
             $(document.body).removeClass('header_opened');
         }
+    }
+
+    blackLinkClicked(e) {
+      e.preventDefault();
     }
 
 }
