@@ -215,13 +215,14 @@ export class Process extends Page {
         } catch(err) {}
 
         if (passiveSupported) {
-            window.addEventListener('wheel', (e) => this.wheelHandler(e), {passive: false});
+            window.addEventListener('wheel', _.debounce((e) => this.wheelHandler(e), 100), {passive: false});
         } else {
-            $(window).on('wheel', (e) => this.wheelHandler(e));
+            $(window).on('wheel', _.debounce((e) => this.wheelHandler(e), 100));
         }
     }
 
     wheelHandler(e) {
+      console.log('aaa');
         const delta = (e.originalEvent) ? e.originalEvent.deltaY : e.deltaY;
         const sectionClassList = this.$elSection.attr("class").split(" ");
         let currentNumber = Number(sectionClassList[0].slice(-1));

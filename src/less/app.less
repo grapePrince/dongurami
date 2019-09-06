@@ -555,11 +555,17 @@ section, section.container {
     display: none;
 }
 
+.nav_container {
+  position: relative;
+}
+
 .main-header nav {
     position: absolute;
     z-index: 100;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
+    min-width: 500px;
 }
 
 .main-header a {
