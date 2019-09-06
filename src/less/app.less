@@ -1755,5 +1755,47 @@ body.login, body.join {
 
 .terms a {
   padding-bottom: 2px;
-  border-bottom: 1px solid #ca434b;
+  border-bottom: 1px solid @red;
+} 
+ 
+.layer_notice { 
+  position: fixed;
+  z-index: 300;
+  top: 100px; left: 100px;
+  width: 400px; height: 300px;
+
+  background: linear-gradient(to bottom, @red 50%, @pink_dark 50%);
+  border-radius: 5px;
+}
+
+.layer_notice__contents {
+  position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 360px; 
+  height: 265px;
+  text-align: center;
+
+  background: @cream;
+}
+
+.layer_notice__close {
+  .hidden_text();
+  float: right;
+  width: 23px;
+  height: 23px;
+  margin: 15px 10px;
+  cursor: pointer;
+
+  background: @url_sprite no-repeat -500px -500px;
+}
+
+.layer_notice__title {
+  .content_title_small();
+  margin: 60px 0 22px;
+
+  font-weight: 800;
+}
+
+.layer_notice__text {
+  margin-bottom: 30px;
 }

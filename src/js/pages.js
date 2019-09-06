@@ -149,6 +149,7 @@ export class Main extends Page {
         this.initSwiper();
 
         $(".feature_services li").on("click", (e) => this.featureListClick(e));
+        $('.layer_notice__close').on('click', (e) => this.noticeLayerClose(e));
     }
 
     initSwiper() {
@@ -169,9 +170,13 @@ export class Main extends Page {
     }
 
     featureListClick(e) {
-        const $current = $(e.currentTarget);
-        const href = $current.data("href");
-        window.location.href = href;
+      const $current = $(e.currentTarget);
+      const href = $current.data("href");
+      window.location.href = href;
+    }
+
+    noticeLayerClose(e) {
+      $('.layer_notice').fadeOut();
     }
 
 }
