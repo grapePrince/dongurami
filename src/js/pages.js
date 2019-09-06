@@ -395,11 +395,11 @@ export class Sample extends Page {
       $('.layer_lightbox').addClass('js-active');
       $('.layer_lightbox__image').attr('src', src);
       if($image.height() > $image.width()) {
-        $('.layer_lightbox__image__container').css({ 'width' : 'auto' });
-        $('.layer_lightbox__image').css({ 'width' : 'auto' });
+        $('.layer_lightbox__image__container').css({ 'width' : 'auto', 'height' : '80%' });
+        $('.layer_lightbox__image').css({ 'width' : 'auto', 'height' : '100%' });        
       } else {
-        $('.layer_lightbox__image__container').css({ 'width' : '80%' });
-        $('.layer_lightbox__image').css({ 'width' : '100%' });
+        $('.layer_lightbox__image__container').css({ 'width' : '80%', 'height' : 'auto' });
+        $('.layer_lightbox__image').css({ 'width' : '100%', 'height' : 'auto' });
       }
     }
 
