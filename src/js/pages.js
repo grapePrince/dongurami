@@ -47,12 +47,13 @@ export default class Page {
             var currentEl = scrollList[i];
             if ( scroll > currentEl.scrollValue()) {
                 currentEl.$el.addClass('scroll_on');
-            } else if ( scroll <= currentEl.scrollValue()) {
-                currentEl.$el.removeClass('scroll_on');
-                if (currentEl.name === 'header') {
-                    $body.removeClass('header_opened');
-                }
-            }
+            } 
+            // else if ( scroll <= currentEl.scrollValue()) {
+            //     currentEl.$el.removeClass('scroll_on');
+            //     if (currentEl.name === 'header') {
+            //         $body.removeClass('header_opened');
+            //     }
+            // }
         }
     }
 
