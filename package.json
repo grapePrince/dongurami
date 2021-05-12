@@ -34,6 +34,6 @@
     "gulp-sourcemaps": "^2.6.5",
     "less": "^3.9.0",
     "path": "^0.12.7",
-    "swiper": "^4.5.0"
+    "swiper": "^6.5.1"
   }
 }
